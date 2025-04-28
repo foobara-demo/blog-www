@@ -1,24 +1,30 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
+
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+
+import RegisterForm from './domains/forms/Foobara/Auth/RegisterForm'
+import LoginForm from './domains/forms/Foobara/Auth/LoginForm'
+import RefreshLoginForm from './domains/forms/Foobara/Auth/RefreshLoginForm'
+import ComputeExponentForm from './domains/forms/ComputeExponentForm'
+import LogoutForm from './domains/forms/Foobara/Auth/LogoutForm'
+import Home from './Home'
+import Header from './Header'
 
 function App () {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/refresh-login" element={<RefreshLoginForm />} />
+          <Route path="/logout" element={<LogoutForm/>}/>
+          <Route path="/compute-exponent" element={<ComputeExponentForm />} />
+        </Routes>
+      </Router>
     </div>
   )
 }
