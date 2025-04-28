@@ -1,0 +1,179 @@
+{
+  "scoped_path": [
+    "ComputeExponent"
+  ],
+  "scoped_name": "ComputeExponent",
+  "scoped_short_name": "ComputeExponent",
+  "scoped_prefix": null,
+  "scoped_full_path": [
+    "ComputeExponent"
+  ],
+  "scoped_full_name": "ComputeExponent",
+  "scoped_category": "command",
+  "reference": "ComputeExponent",
+  "domain": "global_organization::global_domain",
+  "organization": "global_organization",
+  "parent": [
+    "domain",
+    "global_organization::global_domain"
+  ],
+  "types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "integer",
+    "number",
+    "symbol"
+  ],
+  "inputs_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "integer",
+    "symbol"
+  ],
+  "result_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "number",
+    "symbol"
+  ],
+  "errors_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "possible_errors": {
+    "data.base.cannot_cast": {
+      "path": [
+        "base"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.base.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "attributes",
+            "element_type_declarations": {
+              "base": {
+                "type": "integer"
+              },
+              "exponent": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "data.exponent.cannot_cast": {
+      "path": [
+        "exponent"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.exponent.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "data.unexpected_attributes": {
+      "category": "data",
+      "symbol": "unexpected_attributes",
+      "key": "data.unexpected_attributes",
+      "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+      "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+      "processor_manifest_data": {
+        "element_type_declarations": {
+          "base": {
+            "type": "integer"
+          },
+          "exponent": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "runtime.unauthenticated": {
+      "category": "runtime",
+      "symbol": "unauthenticated",
+      "key": "runtime.unauthenticated",
+      "error": "Foobara::CommandConnector::UnauthenticatedError"
+    }
+  },
+  "inputs_type": {
+    "type": "attributes",
+    "element_type_declarations": {
+      "base": {
+        "type": "integer"
+      },
+      "exponent": {
+        "type": "integer"
+      }
+    }
+  },
+  "description": null,
+  "result_type": {
+    "type": "integer"
+  },
+  "errors_transformers": [
+    {
+      "scoped_path": [
+        "Transformers",
+        "AuthErrorsTransformer"
+      ],
+      "scoped_name": "Transformers::AuthErrorsTransformer",
+      "scoped_short_name": "AuthErrorsTransformer",
+      "scoped_prefix": [
+        "Transformers"
+      ],
+      "scoped_full_path": [
+        "Foobara",
+        "CommandConnectors",
+        "Transformers",
+        "AuthErrorsTransformer"
+      ],
+      "scoped_full_name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "domain": "Foobara::CommandConnectors",
+      "organization": "Foobara",
+      "parent": [
+        "domain",
+        "Foobara::CommandConnectors"
+      ],
+      "name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "processor_type": "transformer"
+    }
+  ],
+  "serializers": [
+    "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+    "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+    "Foobara::CommandConnectors::Serializers::JsonSerializer"
+  ],
+  "requires_authentication": true,
+  "authenticator": true
+}

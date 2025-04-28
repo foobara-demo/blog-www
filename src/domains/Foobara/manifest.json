@@ -1,0 +1,19 @@
+{
+  "scoped_path": [
+    "Foobara"
+  ],
+  "scoped_name": "Foobara",
+  "scoped_short_name": "Foobara",
+  "scoped_prefix": null,
+  "scoped_full_path": [
+    "Foobara"
+  ],
+  "scoped_full_name": "Foobara",
+  "scoped_category": "organization",
+  "reference": "Foobara",
+  "domain": "global_organization::global_domain",
+  "organization": "Foobara",
+  "domains": [
+    "Foobara::Auth"
+  ]
+}

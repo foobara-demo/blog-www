@@ -1,0 +1,220 @@
+{
+  "scoped_path": [
+    "Types",
+    "User"
+  ],
+  "scoped_name": "Types::User",
+  "scoped_short_name": "User",
+  "scoped_prefix": [
+    "Types"
+  ],
+  "scoped_full_path": [
+    "Foobara",
+    "Auth",
+    "Types",
+    "User"
+  ],
+  "scoped_full_name": "Foobara::Auth::Types::User",
+  "scoped_category": "type",
+  "reference": "Foobara::Auth::Types::User",
+  "domain": "Foobara::Auth",
+  "organization": "Foobara",
+  "parent": [
+    "domain",
+    "Foobara::Auth"
+  ],
+  "declaration_data": {
+    "type": "detached_entity",
+    "name": "Types::User",
+    "model_module": "Foobara::Auth",
+    "model_class": "Foobara::Auth::Types::User",
+    "model_base_class": "Foobara::DetachedEntity",
+    "attributes_declaration": {
+      "type": "attributes",
+      "element_type_declarations": {
+        "id": {
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "allow_nil": true,
+          "type": "email"
+        },
+        "roles": {
+          "type": "array",
+          "element_type_declaration": {
+            "type": "Foobara::Auth::Types::Role"
+          }
+        }
+      },
+      "required": [
+        "username"
+      ],
+      "defaults": {
+        "roles": []
+      }
+    },
+    "primary_key": "id"
+  },
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "entity",
+            "name": "Types::User",
+            "model_module": "Foobara::Auth",
+            "model_class": "Foobara::Auth::Types::User",
+            "model_base_class": "Foobara::Entity",
+            "attributes_declaration": {
+              "type": "attributes",
+              "element_type_declarations": {
+                "id": {
+                  "type": "integer"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "allow_nil": true,
+                  "type": "email"
+                },
+                "roles": {
+                  "type": "array",
+                  "element_type_declaration": {
+                    "type": "Foobara::Auth::Types::Role"
+                  }
+                },
+                "api_keys": {
+                  "type": "array",
+                  "element_type_declaration": {
+                    "type": "Foobara::Auth::Types::Token"
+                  },
+                  "sensitive": true
+                },
+                "refresh_tokens": {
+                  "type": "array",
+                  "element_type_declaration": {
+                    "type": "Foobara::Auth::Types::Token"
+                  },
+                  "sensitive": true
+                },
+                "password_secret": {
+                  "sensitive": true,
+                  "allow_nil": true,
+                  "type": "Foobara::Auth::Types::Secret"
+                },
+                "reset_password_token": {
+                  "sensitive": true,
+                  "allow_nil": true,
+                  "type": "Foobara::Auth::Types::Token"
+                }
+              },
+              "required": [
+                "username"
+              ],
+              "defaults": {
+                "roles": [],
+                "api_keys": [],
+                "refresh_tokens": []
+              }
+            },
+            "primary_key": "id"
+          }
+        }
+      }
+    }
+  },
+  "name": "Types::User",
+  "target_classes": [
+    "Foobara::Auth::Types::User"
+  ],
+  "types_depended_on": [
+    "Foobara::Auth::Types::Role",
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "description": null,
+  "base_type": "detached_entity",
+  "supported_casters": [
+    "duck::SupportedCasters::AllowNil"
+  ],
+  "supported_transformers": [
+    "model::SupportedTransformers::Mutable"
+  ],
+  "supported_validators": [
+    "duck::SupportedValidators::InstanceOf",
+    "duck::SupportedValidators::OneOf"
+  ],
+  "processors": {
+    "caster_classes": [
+      "entity::Casters::Hash",
+      "entity::Casters::PrimaryKey"
+    ],
+    "validator_classes": [
+      "entity::Validators::ModelInstanceIsValid"
+    ]
+  },
+  "attributes_type": {
+    "type": "attributes",
+    "element_type_declarations": {
+      "id": {
+        "type": "integer"
+      },
+      "username": {
+        "type": "string"
+      },
+      "email": {
+        "allow_nil": true,
+        "type": "email"
+      },
+      "roles": {
+        "type": "array",
+        "element_type_declaration": {
+          "type": "Foobara::Auth::Types::Role"
+        }
+      }
+    },
+    "required": [
+      "username"
+    ],
+    "defaults": {
+      "roles": []
+    }
+  },
+  "organization_name": "Foobara",
+  "domain_name": "Auth",
+  "model_name": "Types::User",
+  "model_base_class": "Foobara::Entity",
+  "model_class": "Foobara::Auth::Types::User",
+  "depends_on": [
+    "Foobara::Auth::Types::Role"
+  ],
+  "deep_depends_on": [
+    "Foobara::Auth::Types::Role"
+  ],
+  "associations": {
+    "roles.#": "Foobara::Auth::Types::Role"
+  },
+  "deep_associations": {
+    "roles.#": "Foobara::Auth::Types::Role"
+  },
+  "entity_name": "Types::User",
+  "primary_key_attribute": "id",
+  "primary_key_type": {
+    "type": "integer"
+  }
+}

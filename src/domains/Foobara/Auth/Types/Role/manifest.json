@@ -1,0 +1,140 @@
+{
+  "scoped_path": [
+    "Types",
+    "Role"
+  ],
+  "scoped_name": "Types::Role",
+  "scoped_short_name": "Role",
+  "scoped_prefix": [
+    "Types"
+  ],
+  "scoped_full_path": [
+    "Foobara",
+    "Auth",
+    "Types",
+    "Role"
+  ],
+  "scoped_full_name": "Foobara::Auth::Types::Role",
+  "scoped_category": "type",
+  "reference": "Foobara::Auth::Types::Role",
+  "domain": "Foobara::Auth",
+  "organization": "Foobara",
+  "parent": [
+    "domain",
+    "Foobara::Auth"
+  ],
+  "declaration_data": {
+    "type": "detached_entity",
+    "name": "Types::Role",
+    "model_module": "Foobara::Auth",
+    "model_class": "Foobara::Auth::Types::Role",
+    "model_base_class": "Foobara::DetachedEntity",
+    "attributes_declaration": {
+      "type": "attributes",
+      "element_type_declarations": {
+        "id": {
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "symbol"
+        }
+      },
+      "required": [
+        "symbol"
+      ]
+    },
+    "primary_key": "id"
+  },
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "entity",
+            "name": "Types::Role",
+            "model_module": "Foobara::Auth",
+            "model_class": "Foobara::Auth::Types::Role",
+            "model_base_class": "Foobara::Entity",
+            "attributes_declaration": {
+              "type": "attributes",
+              "element_type_declarations": {
+                "id": {
+                  "type": "integer"
+                },
+                "symbol": {
+                  "type": "symbol"
+                }
+              },
+              "required": [
+                "symbol"
+              ]
+            },
+            "primary_key": "id"
+          }
+        }
+      }
+    }
+  },
+  "name": "Types::Role",
+  "target_classes": [
+    "Foobara::Auth::Types::Role"
+  ],
+  "types_depended_on": [
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "integer",
+    "symbol"
+  ],
+  "description": null,
+  "base_type": "detached_entity",
+  "supported_casters": [
+    "duck::SupportedCasters::AllowNil"
+  ],
+  "supported_transformers": [
+    "model::SupportedTransformers::Mutable"
+  ],
+  "supported_validators": [
+    "duck::SupportedValidators::InstanceOf",
+    "duck::SupportedValidators::OneOf"
+  ],
+  "processors": {
+    "caster_classes": [
+      "entity::Casters::Hash",
+      "entity::Casters::PrimaryKey"
+    ],
+    "validator_classes": [
+      "entity::Validators::ModelInstanceIsValid"
+    ]
+  },
+  "attributes_type": {
+    "type": "attributes",
+    "element_type_declarations": {
+      "id": {
+        "type": "integer"
+      },
+      "symbol": {
+        "type": "symbol"
+      }
+    },
+    "required": [
+      "symbol"
+    ]
+  },
+  "organization_name": "Foobara",
+  "domain_name": "Auth",
+  "model_name": "Types::Role",
+  "model_base_class": "Foobara::Entity",
+  "model_class": "Foobara::Auth::Types::Role",
+  "entity_name": "Types::Role",
+  "primary_key_attribute": "id",
+  "primary_key_type": {
+    "type": "integer"
+  }
+}

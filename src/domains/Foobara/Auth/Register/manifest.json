@@ -1,0 +1,389 @@
+{
+  "scoped_path": [
+    "Register"
+  ],
+  "scoped_name": "Register",
+  "scoped_short_name": "Register",
+  "scoped_prefix": null,
+  "scoped_full_path": [
+    "Foobara",
+    "Auth",
+    "Register"
+  ],
+  "scoped_full_name": "Foobara::Auth::Register",
+  "scoped_category": "command",
+  "reference": "Foobara::Auth::Register",
+  "domain": "Foobara::Auth",
+  "organization": "Foobara",
+  "parent": [
+    "domain",
+    "Foobara::Auth"
+  ],
+  "types_depended_on": [
+    "Foobara::Auth::Types::Role",
+    "Foobara::Auth::Types::User",
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "inputs_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "email",
+    "string",
+    "symbol"
+  ],
+  "result_types_depended_on": [
+    "Foobara::Auth::Types::Role",
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "errors_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "attributes",
+            "element_type_declarations": {
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "allow_nil": true,
+                "type": "email"
+              },
+              "plaintext_password": {
+                "allow_nil": true,
+                "sensitive_exposed": true,
+                "type": "string"
+              }
+            },
+            "required": [
+              "username"
+            ]
+          }
+        }
+      }
+    },
+    "data.email.cannot_cast": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.email.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "allow_nil": true,
+            "type": "email"
+          }
+        }
+      }
+    },
+    "data.email.cannot_exceed64_characters": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "cannot_exceed64_characters",
+      "key": "data.email.cannot_exceed64_characters",
+      "error": "email::Validators::CannotExceed64Characters::CannotExceed64CharactersError",
+      "processor_manifest_data": {
+        "cannot_exceed64_characters": true
+      }
+    },
+    "data.email.cannot_have_multiple_at_signs": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "cannot_have_multiple_at_signs",
+      "key": "data.email.cannot_have_multiple_at_signs",
+      "error": "email::Validators::CannotHaveMultipleAtSigns::CannotHaveMultipleAtSignsError",
+      "processor_manifest_data": {
+        "cannot_have_multiple_at_signs": true
+      }
+    },
+    "data.email.domain_cannot_start_with_or_end_with_a_hyphen": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "domain_cannot_start_with_or_end_with_a_hyphen",
+      "key": "data.email.domain_cannot_start_with_or_end_with_a_hyphen",
+      "error": "email::Validators::DomainCannotStartWithOrEndWithAHyphen::DomainCannotStartWithOrEndWithAHyphenError",
+      "processor_manifest_data": {
+        "domain_cannot_start_with_or_end_with_a_hyphen": true
+      }
+    },
+    "data.email.first_part_cannot_be_empty": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "first_part_cannot_be_empty",
+      "key": "data.email.first_part_cannot_be_empty",
+      "error": "email::Validators::FirstPartCannotBeEmpty::FirstPartCannotBeEmptyError",
+      "processor_manifest_data": {
+        "first_part_cannot_be_empty": true
+      }
+    },
+    "data.email.first_part_cannot_start_with_or_end_with_a_dot_or_have_two_dots_in_a_row": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "first_part_cannot_start_with_or_end_with_a_dot_or_have_two_dots_in_a_row",
+      "key": "data.email.first_part_cannot_start_with_or_end_with_a_dot_or_have_two_dots_in_a_row",
+      "error": "email::Validators::FirstPartCannotStartWithOrEndWithADotOrHaveTwoDotsInARow::FirstPartCannotStartWithOrEndWithADotOrHaveTwoDotsInARowError",
+      "processor_manifest_data": {
+        "first_part_cannot_start_with_or_end_with_a_dot_or_have_two_dots_in_a_row": true
+      }
+    },
+    "data.email.first_part_has_bad_characters": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "first_part_has_bad_characters",
+      "key": "data.email.first_part_has_bad_characters",
+      "error": "email::Validators::FirstPartHasBadCharacters::FirstPartHasBadCharactersError",
+      "processor_manifest_data": {
+        "first_part_has_bad_characters": true
+      }
+    },
+    "data.email.must_have_an_at_sign": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "must_have_an_at_sign",
+      "key": "data.email.must_have_an_at_sign",
+      "error": "email::Validators::MustHaveAnAtSign::MustHaveAnAtSignError",
+      "processor_manifest_data": {
+        "must_have_an_at_sign": true
+      }
+    },
+    "data.email.second_part_cannot_be_empty": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "second_part_cannot_be_empty",
+      "key": "data.email.second_part_cannot_be_empty",
+      "error": "email::Validators::SecondPartCannotBeEmpty::SecondPartCannotBeEmptyError",
+      "processor_manifest_data": {
+        "second_part_cannot_be_empty": true
+      }
+    },
+    "data.email.second_part_has_bad_characters": {
+      "path": [
+        "email"
+      ],
+      "category": "data",
+      "symbol": "second_part_has_bad_characters",
+      "key": "data.email.second_part_has_bad_characters",
+      "error": "email::Validators::SecondPartHasBadCharacters::SecondPartHasBadCharactersError",
+      "processor_manifest_data": {
+        "second_part_has_bad_characters": true
+      }
+    },
+    "data.missing_required_attribute": {
+      "category": "data",
+      "symbol": "missing_required_attribute",
+      "key": "data.missing_required_attribute",
+      "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
+      "processor_class": "Foobara::Value::Processor::Pipeline",
+      "processor_manifest_data": {
+        "pipeline": null
+      }
+    },
+    "data.plaintext_password.cannot_cast": {
+      "path": [
+        "plaintext_password"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.plaintext_password.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "allow_nil": true,
+            "sensitive_exposed": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.unexpected_attributes": {
+      "category": "data",
+      "symbol": "unexpected_attributes",
+      "key": "data.unexpected_attributes",
+      "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+      "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+      "processor_manifest_data": {
+        "element_type_declarations": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "allow_nil": true,
+            "type": "email"
+          },
+          "plaintext_password": {
+            "allow_nil": true,
+            "sensitive_exposed": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.username.cannot_cast": {
+      "path": [
+        "username"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.username.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.username.missing_required_attribute": {
+      "path": [
+        "username"
+      ],
+      "category": "data",
+      "symbol": "missing_required_attribute",
+      "key": "data.username.missing_required_attribute",
+      "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
+      "processor_class": "attributes::SupportedValidators::Required",
+      "processor_manifest_data": {
+        "required": [
+          "username"
+        ]
+      }
+    }
+  },
+  "depends_on": [
+    "Foobara::Auth::CreateUser",
+    "Foobara::Auth::SetPassword"
+  ],
+  "inputs_type": {
+    "type": "attributes",
+    "element_type_declarations": {
+      "username": {
+        "type": "string"
+      },
+      "email": {
+        "allow_nil": true,
+        "type": "email"
+      },
+      "plaintext_password": {
+        "allow_nil": true,
+        "sensitive_exposed": true,
+        "type": "string"
+      }
+    },
+    "required": [
+      "username"
+    ]
+  },
+  "description": null,
+  "result_type": {
+    "type": "Foobara::Auth::Types::User"
+  },
+  "inputs_transformers": [
+    {
+      "scoped_path": [
+        "17d0"
+      ],
+      "scoped_name": "17d0",
+      "scoped_short_name": "17d0",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "17d0"
+      ],
+      "scoped_full_name": "17d0",
+      "scoped_category": "processor_class",
+      "reference": "17d0",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "domain",
+        "global_organization::global_domain"
+      ],
+      "name": "Anonymous",
+      "processor_type": "transformer"
+    }
+  ],
+  "result_transformers": [
+    {
+      "scoped_path": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types",
+        "User"
+      ],
+      "scoped_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "scoped_short_name": "User",
+      "scoped_prefix": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types"
+      ],
+      "scoped_full_path": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types",
+        "User"
+      ],
+      "scoped_full_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "scoped_category": "processor",
+      "reference": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "processor_class": "Foobara::Entity::SensitiveValueRemovers::Entity"
+    }
+  ],
+  "serializers": [
+    "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+    "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+    "Foobara::CommandConnectors::Serializers::JsonSerializer"
+  ],
+  "authenticator": true
+}

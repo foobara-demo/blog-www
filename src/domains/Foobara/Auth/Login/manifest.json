@@ -1,0 +1,242 @@
+{
+  "scoped_path": [
+    "Login"
+  ],
+  "scoped_name": "Login",
+  "scoped_short_name": "Login",
+  "scoped_prefix": null,
+  "scoped_full_path": [
+    "Foobara",
+    "Auth",
+    "Login"
+  ],
+  "scoped_full_name": "Foobara::Auth::Login",
+  "scoped_category": "command",
+  "reference": "Foobara::Auth::Login",
+  "domain": "Foobara::Auth",
+  "organization": "Foobara",
+  "parent": [
+    "domain",
+    "Foobara::Auth"
+  ],
+  "types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "inputs_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "string",
+    "symbol"
+  ],
+  "result_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "errors_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "attributes",
+            "element_type_declarations": {
+              "username_or_email": {
+                "allow_nil": true,
+                "type": "string"
+              },
+              "plaintext_password": {
+                "sensitive_exposed": true,
+                "type": "string"
+              }
+            },
+            "required": [
+              "plaintext_password"
+            ]
+          }
+        }
+      }
+    },
+    "data.missing_required_attribute": {
+      "category": "data",
+      "symbol": "missing_required_attribute",
+      "key": "data.missing_required_attribute",
+      "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
+      "processor_class": "Foobara::Value::Processor::Pipeline",
+      "processor_manifest_data": {
+        "pipeline": null
+      }
+    },
+    "data.plaintext_password.cannot_cast": {
+      "path": [
+        "plaintext_password"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.plaintext_password.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "sensitive_exposed": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.plaintext_password.missing_required_attribute": {
+      "path": [
+        "plaintext_password"
+      ],
+      "category": "data",
+      "symbol": "missing_required_attribute",
+      "key": "data.plaintext_password.missing_required_attribute",
+      "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
+      "processor_class": "attributes::SupportedValidators::Required",
+      "processor_manifest_data": {
+        "required": [
+          "plaintext_password"
+        ]
+      }
+    },
+    "data.unexpected_attributes": {
+      "category": "data",
+      "symbol": "unexpected_attributes",
+      "key": "data.unexpected_attributes",
+      "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+      "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+      "processor_manifest_data": {
+        "element_type_declarations": {
+          "username_or_email": {
+            "allow_nil": true,
+            "type": "string"
+          },
+          "plaintext_password": {
+            "sensitive_exposed": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.username_or_email.cannot_cast": {
+      "path": [
+        "username_or_email"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.username_or_email.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "allow_nil": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "foobara::auth::find_user>runtime.user_not_found": {
+      "runtime_path": [
+        "foobara::auth::find_user"
+      ],
+      "category": "runtime",
+      "symbol": "user_not_found",
+      "key": "foobara::auth::find_user>runtime.user_not_found",
+      "error": "Foobara::Auth::FindUser::UserNotFoundError"
+    },
+    "runtime.invalid_password": {
+      "category": "runtime",
+      "symbol": "invalid_password",
+      "key": "runtime.invalid_password",
+      "error": "Foobara::Auth::Login::InvalidPasswordError"
+    },
+    "runtime.no_user_id_email_or_username_given": {
+      "category": "runtime",
+      "symbol": "no_user_id_email_or_username_given",
+      "key": "runtime.no_user_id_email_or_username_given",
+      "error": "Foobara::Auth::Login::NoUserIdEmailOrUsernameGivenError"
+    }
+  },
+  "depends_on": [
+    "Foobara::Auth::BuildAccessToken",
+    "Foobara::Auth::CreateRefreshToken",
+    "Foobara::Auth::FindUser",
+    "Foobara::Auth::VerifyPassword"
+  ],
+  "inputs_type": {
+    "type": "attributes",
+    "element_type_declarations": {
+      "username_or_email": {
+        "allow_nil": true,
+        "type": "string"
+      },
+      "plaintext_password": {
+        "sensitive_exposed": true,
+        "type": "string"
+      }
+    },
+    "required": [
+      "plaintext_password"
+    ]
+  },
+  "description": null,
+  "result_type": {
+    "type": "attributes",
+    "element_type_declarations": {}
+  },
+  "inputs_transformers": [
+    {
+      "scoped_path": [
+        "17e0"
+      ],
+      "scoped_name": "17e0",
+      "scoped_short_name": "17e0",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "17e0"
+      ],
+      "scoped_full_name": "17e0",
+      "scoped_category": "processor_class",
+      "reference": "17e0",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "domain",
+        "global_organization::global_domain"
+      ],
+      "name": "Anonymous",
+      "processor_type": "transformer"
+    }
+  ],
+  "serializers": [
+    "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+    "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+    "Foobara::CommandConnectors::Serializers::JsonSerializer"
+  ],
+  "response_mutators": [
+    "Foobara::AuthHttp::MoveRefreshTokenToCookie",
+    "Foobara::AuthHttp::MoveAccessTokenToHeader"
+  ],
+  "authenticator": true
+}

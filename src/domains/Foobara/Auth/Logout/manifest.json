@@ -1,0 +1,150 @@
+{
+  "scoped_path": [
+    "Logout"
+  ],
+  "scoped_name": "Logout",
+  "scoped_short_name": "Logout",
+  "scoped_prefix": null,
+  "scoped_full_path": [
+    "Foobara",
+    "Auth",
+    "Logout"
+  ],
+  "scoped_full_name": "Foobara::Auth::Logout",
+  "scoped_category": "command",
+  "reference": "Foobara::Auth::Logout",
+  "domain": "Foobara::Auth",
+  "organization": "Foobara",
+  "parent": [
+    "domain",
+    "Foobara::Auth"
+  ],
+  "types_depended_on": [
+    "Foobara::Auth::token_state",
+    "array",
+    "attributes",
+    "duck",
+    "string",
+    "symbol"
+  ],
+  "inputs_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "result_types_depended_on": [
+    "array",
+    "attributes",
+    "symbol"
+  ],
+  "errors_types_depended_on": [
+    "Foobara::Auth::token_state",
+    "array",
+    "attributes",
+    "duck",
+    "string",
+    "symbol"
+  ],
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "attributes",
+            "element_type_declarations": {
+              "refresh_token": {
+                "allow_nil": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "data.refresh_token.cannot_cast": {
+      "path": [
+        "refresh_token"
+      ],
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.refresh_token.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "allow_nil": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data.unexpected_attributes": {
+      "category": "data",
+      "symbol": "unexpected_attributes",
+      "key": "data.unexpected_attributes",
+      "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+      "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+      "processor_manifest_data": {
+        "element_type_declarations": {
+          "refresh_token": {
+            "allow_nil": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "foobara::auth::verify_token>runtime.expired_token": {
+      "runtime_path": [
+        "foobara::auth::verify_token"
+      ],
+      "category": "runtime",
+      "symbol": "expired_token",
+      "key": "foobara::auth::verify_token>runtime.expired_token",
+      "error": "Foobara::Auth::VerifyToken::ExpiredTokenError"
+    },
+    "foobara::auth::verify_token>runtime.inactive_token": {
+      "runtime_path": [
+        "foobara::auth::verify_token"
+      ],
+      "category": "runtime",
+      "symbol": "inactive_token",
+      "key": "foobara::auth::verify_token>runtime.inactive_token",
+      "error": "Foobara::Auth::VerifyToken::InactiveTokenError"
+    },
+    "runtime.invalid_refresh_token": {
+      "category": "runtime",
+      "symbol": "invalid_refresh_token",
+      "key": "runtime.invalid_refresh_token",
+      "error": "Foobara::Auth::Logout::InvalidRefreshTokenError"
+    }
+  },
+  "depends_on": [
+    "Foobara::Auth::VerifyToken"
+  ],
+  "inputs_type": {
+    "type": "attributes",
+    "element_type_declarations": {}
+  },
+  "description": null,
+  "result_type": {
+    "type": "duck"
+  },
+  "serializers": [
+    "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+    "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+    "Foobara::CommandConnectors::Serializers::JsonSerializer"
+  ],
+  "response_mutators": [
+    "Foobara::AuthHttp::ClearAccessTokenHeader"
+  ],
+  "request_mutators": [
+    "Foobara::AuthHttp::SetRefreshTokenFromCookie"
+  ],
+  "authenticator": true
+}

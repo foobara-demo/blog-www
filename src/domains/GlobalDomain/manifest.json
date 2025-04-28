@@ -1,0 +1,36 @@
+{
+  "scoped_path": [],
+  "scoped_name": null,
+  "scoped_short_name": null,
+  "scoped_prefix": [],
+  "scoped_full_path": [],
+  "scoped_full_name": "",
+  "scoped_category": "domain",
+  "reference": "global_organization::global_domain",
+  "domain": "global_organization::global_domain",
+  "organization": "global_organization",
+  "parent": [
+    "organization",
+    "global_organization"
+  ],
+  "commands": [
+    "ComputeExponent"
+  ],
+  "types": [
+    "array",
+    "associative_array",
+    "atomic_duck",
+    "attributes",
+    "datetime",
+    "detached_entity",
+    "duck",
+    "duckture",
+    "email",
+    "entity",
+    "integer",
+    "model",
+    "number",
+    "string",
+    "symbol"
+  ]
+}
