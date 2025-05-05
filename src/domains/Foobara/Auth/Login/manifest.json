@@ -208,17 +208,17 @@
   "inputs_transformers": [
     {
       "scoped_path": [
-        "17e0"
+        "13b8"
       ],
-      "scoped_name": "17e0",
-      "scoped_short_name": "17e0",
+      "scoped_name": "13b8",
+      "scoped_short_name": "13b8",
       "scoped_prefix": null,
       "scoped_full_path": [
-        "17e0"
+        "13b8"
       ],
-      "scoped_full_name": "17e0",
+      "scoped_full_name": "13b8",
       "scoped_category": "processor_class",
-      "reference": "17e0",
+      "reference": "13b8",
       "domain": "global_organization::global_domain",
       "organization": "global_organization",
       "parent": [
@@ -238,5 +238,8 @@
     "Foobara::AuthHttp::MoveRefreshTokenToCookie",
     "Foobara::AuthHttp::MoveAccessTokenToHeader"
   ],
-  "authenticator": true
+  "authenticator": {
+    "symbol": "bearer",
+    "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+  }
 }

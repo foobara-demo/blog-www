@@ -1,7 +1,5 @@
 import { type InvalidRefreshTokenError } from '../../../Foobara/Auth/RefreshLogin/errors/InvalidRefreshTokenError'
 
-import { type RefreshTokenNotOwnedByUser } from '../../../Foobara/Auth/RefreshLogin/errors/RefreshTokenNotOwnedByUser'
-
 import { type ExpiredTokenError } from '../../../Foobara/Auth/errors/VerifyToken/ExpiredTokenError'
 
 import { type InactiveTokenError } from '../../../Foobara/Auth/errors/VerifyToken/InactiveTokenError'
@@ -30,14 +28,11 @@ export interface PossibleErrors {
 
   'runtime.invalid_refresh_token': InvalidRefreshTokenError
 
-  'runtime.refresh_token_not_owned_by_user': RefreshTokenNotOwnedByUser
-
 }
 
 export type Error = CannotCastError |
 InvalidRefreshTokenError |
 MissingRequiredAttributeError |
-RefreshTokenNotOwnedByUser |
 UnexpectedAttributesError |
 ExpiredTokenError |
 InactiveTokenError

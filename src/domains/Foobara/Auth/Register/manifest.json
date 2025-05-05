@@ -327,17 +327,17 @@
   "inputs_transformers": [
     {
       "scoped_path": [
-        "17d0"
+        "13a8"
       ],
-      "scoped_name": "17d0",
-      "scoped_short_name": "17d0",
+      "scoped_name": "13a8",
+      "scoped_short_name": "13a8",
       "scoped_prefix": null,
       "scoped_full_path": [
-        "17d0"
+        "13a8"
       ],
-      "scoped_full_name": "17d0",
+      "scoped_full_name": "13a8",
       "scoped_category": "processor_class",
-      "reference": "17d0",
+      "reference": "13a8",
       "domain": "global_organization::global_domain",
       "organization": "global_organization",
       "parent": [
@@ -385,5 +385,8 @@
     "Foobara::CommandConnectors::Serializers::AtomicSerializer",
     "Foobara::CommandConnectors::Serializers::JsonSerializer"
   ],
-  "authenticator": true
+  "authenticator": {
+    "symbol": "bearer",
+    "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+  }
 }

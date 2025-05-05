@@ -25,7 +25,6 @@
   "Foobara/Auth/RefreshLogin/Inputs.ts",
   "Foobara/Auth/RefreshLogin/Result.ts",
   "Foobara/Auth/RefreshLogin/errors/InvalidRefreshTokenError.ts",
-  "Foobara/Auth/RefreshLogin/errors/RefreshTokenNotOwnedByUser.ts",
   "Foobara/Auth/RefreshLogin/errors/index.ts",
   "Foobara/Auth/RefreshLogin/index.ts",
   "Foobara/Auth/RefreshLogin/manifest.json",

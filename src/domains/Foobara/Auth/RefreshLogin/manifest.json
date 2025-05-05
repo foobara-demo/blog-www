@@ -151,12 +151,6 @@
       "symbol": "invalid_refresh_token",
       "key": "runtime.invalid_refresh_token",
       "error": "Foobara::Auth::RefreshLogin::InvalidRefreshTokenError"
-    },
-    "runtime.refresh_token_not_owned_by_user": {
-      "category": "runtime",
-      "symbol": "refresh_token_not_owned_by_user",
-      "key": "runtime.refresh_token_not_owned_by_user",
-      "error": "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser"
     }
   },
   "depends_on": [
@@ -176,17 +170,17 @@
   "inputs_transformers": [
     {
       "scoped_path": [
-        "17f0"
+        "13c8"
       ],
-      "scoped_name": "17f0",
-      "scoped_short_name": "17f0",
+      "scoped_name": "13c8",
+      "scoped_short_name": "13c8",
       "scoped_prefix": null,
       "scoped_full_path": [
-        "17f0"
+        "13c8"
       ],
-      "scoped_full_name": "17f0",
+      "scoped_full_name": "13c8",
       "scoped_category": "processor_class",
-      "reference": "17f0",
+      "reference": "13c8",
       "domain": "global_organization::global_domain",
       "organization": "global_organization",
       "parent": [
@@ -209,5 +203,8 @@
   "request_mutators": [
     "Foobara::AuthHttp::SetRefreshTokenFromCookie"
   ],
-  "authenticator": true
+  "authenticator": {
+    "symbol": "bearer",
+    "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+  }
 }

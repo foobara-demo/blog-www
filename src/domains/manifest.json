@@ -177,7 +177,10 @@
         "Foobara::CommandConnectors::Serializers::JsonSerializer"
       ],
       "requires_authentication": true,
-      "authenticator": true
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
     },
     "Foobara::Auth::Login": {
       "scoped_path": [
@@ -389,17 +392,17 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "17e0"
+            "13b8"
           ],
-          "scoped_name": "17e0",
-          "scoped_short_name": "17e0",
+          "scoped_name": "13b8",
+          "scoped_short_name": "13b8",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "17e0"
+            "13b8"
           ],
-          "scoped_full_name": "17e0",
+          "scoped_full_name": "13b8",
           "scoped_category": "processor_class",
-          "reference": "17e0",
+          "reference": "13b8",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
           "parent": [
@@ -419,7 +422,10 @@
         "Foobara::AuthHttp::MoveRefreshTokenToCookie",
         "Foobara::AuthHttp::MoveAccessTokenToHeader"
       ],
-      "authenticator": true
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
     },
     "Foobara::Auth::Logout": {
       "scoped_path": [
@@ -569,7 +575,10 @@
       "request_mutators": [
         "Foobara::AuthHttp::SetRefreshTokenFromCookie"
       ],
-      "authenticator": true
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
     },
     "Foobara::Auth::RefreshLogin": {
       "scoped_path": [
@@ -724,12 +733,6 @@
           "symbol": "invalid_refresh_token",
           "key": "runtime.invalid_refresh_token",
           "error": "Foobara::Auth::RefreshLogin::InvalidRefreshTokenError"
-        },
-        "runtime.refresh_token_not_owned_by_user": {
-          "category": "runtime",
-          "symbol": "refresh_token_not_owned_by_user",
-          "key": "runtime.refresh_token_not_owned_by_user",
-          "error": "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser"
         }
       },
       "depends_on": [
@@ -749,17 +752,17 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "17f0"
+            "13c8"
           ],
-          "scoped_name": "17f0",
-          "scoped_short_name": "17f0",
+          "scoped_name": "13c8",
+          "scoped_short_name": "13c8",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "17f0"
+            "13c8"
           ],
-          "scoped_full_name": "17f0",
+          "scoped_full_name": "13c8",
           "scoped_category": "processor_class",
-          "reference": "17f0",
+          "reference": "13c8",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
           "parent": [
@@ -782,7 +785,10 @@
       "request_mutators": [
         "Foobara::AuthHttp::SetRefreshTokenFromCookie"
       ],
-      "authenticator": true
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
     },
     "Foobara::Auth::Register": {
       "scoped_path": [
@@ -1113,17 +1119,17 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "17d0"
+            "13a8"
           ],
-          "scoped_name": "17d0",
-          "scoped_short_name": "17d0",
+          "scoped_name": "13a8",
+          "scoped_short_name": "13a8",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "17d0"
+            "13a8"
           ],
-          "scoped_full_name": "17d0",
+          "scoped_full_name": "13a8",
           "scoped_category": "processor_class",
-          "reference": "17d0",
+          "reference": "13a8",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
           "parent": [
@@ -1171,7 +1177,10 @@
         "Foobara::CommandConnectors::Serializers::AtomicSerializer",
         "Foobara::CommandConnectors::Serializers::JsonSerializer"
       ],
-      "authenticator": true
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
     }
   },
   "domain": {
@@ -1460,49 +1469,6 @@
       },
       "is_fatal": true,
       "error_class": "Foobara::Auth::RefreshLogin::InvalidRefreshTokenError",
-      "base_error": "Foobara::RuntimeError"
-    },
-    "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser": {
-      "scoped_path": [
-        "RefreshTokenNotOwnedByUser"
-      ],
-      "scoped_name": "RefreshTokenNotOwnedByUser",
-      "scoped_short_name": "RefreshTokenNotOwnedByUser",
-      "scoped_prefix": null,
-      "scoped_full_path": [
-        "Foobara",
-        "Auth",
-        "RefreshLogin",
-        "RefreshTokenNotOwnedByUser"
-      ],
-      "scoped_full_name": "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser",
-      "scoped_category": "error",
-      "reference": "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser",
-      "domain": "Foobara::Auth",
-      "organization": "Foobara",
-      "parent": [
-        "command",
-        "Foobara::Auth::RefreshLogin"
-      ],
-      "types_depended_on": [
-        "array",
-        "attributes",
-        "duck",
-        "string",
-        "symbol"
-      ],
-      "category": "runtime",
-      "symbol": "refresh_token_not_owned_by_user",
-      "context_type_declaration": {
-        "type": "attributes",
-        "element_type_declarations": {
-          "refresh_token_id": {
-            "type": "string"
-          }
-        }
-      },
-      "is_fatal": true,
-      "error_class": "Foobara::Auth::RefreshLogin::RefreshTokenNotOwnedByUser",
       "base_error": "Foobara::RuntimeError"
     },
     "Foobara::Auth::VerifyToken::ExpiredTokenError": {
@@ -4095,6 +4061,33 @@
       "name": "Foobara::BuiltinTypes::DetachedEntity::Casters::Hash",
       "processor_type": "caster"
     },
+    "detached_entity::Casters::PrimaryKey": {
+      "scoped_path": [
+        "Casters",
+        "PrimaryKey"
+      ],
+      "scoped_name": "Casters::PrimaryKey",
+      "scoped_short_name": "PrimaryKey",
+      "scoped_prefix": [
+        "Casters"
+      ],
+      "scoped_full_path": [
+        "detached_entity",
+        "Casters",
+        "PrimaryKey"
+      ],
+      "scoped_full_name": "detached_entity::Casters::PrimaryKey",
+      "scoped_category": "processor_class",
+      "reference": "detached_entity::Casters::PrimaryKey",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "type",
+        "detached_entity"
+      ],
+      "name": "Foobara::BuiltinTypes::DetachedEntity::Casters::PrimaryKey",
+      "processor_type": "caster"
+    },
     "detached_entity::Validators::ModelInstanceIsValid": {
       "scoped_path": [
         "Validators",
@@ -6011,7 +6004,8 @@
       ],
       "processors": {
         "caster_classes": [
-          "detached_entity::Casters::Hash"
+          "detached_entity::Casters::Hash",
+          "detached_entity::Casters::PrimaryKey"
         ],
         "validator_classes": [
           "detached_entity::Validators::ModelInstanceIsValid"
@@ -6723,7 +6717,7 @@
     }
   },
   "metadata": {
-    "when": "2025-04-28 11:36:25 -0700",
-    "url": "http://localhost:3000/manifest"
+    "when": "2025-05-05 20:17:51 +0000",
+    "url": "https://app.blog.playground.foobara.com:80/manifest"
   }
 }

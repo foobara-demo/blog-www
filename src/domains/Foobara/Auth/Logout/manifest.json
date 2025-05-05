@@ -146,5 +146,8 @@
   "request_mutators": [
     "Foobara::AuthHttp::SetRefreshTokenFromCookie"
   ],
-  "authenticator": true
+  "authenticator": {
+    "symbol": "bearer",
+    "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+  }
 }
