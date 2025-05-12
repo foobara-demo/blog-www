@@ -1,12 +1,10 @@
-import { type FoobaraError } from '../base/Error'
 import type RemoteCommand from '../base/RemoteCommand'
 import { type Outcome } from '../base/Outcome'
+import { type InputsOf, type ResultOf, type ErrorOf } from './RemoteCommandTypes'
 
-export default class Query<
-  CommandT extends RemoteCommand<InputsT, ResultT, ErrorT>, InputsT, ResultT, ErrorT extends FoobaraError
-> {
-  inputs: InputsT
-  CommandClass: new (inputs: InputsT) => CommandT
+export default class Query<CommandT extends RemoteCommand<any, any, any>> {
+  inputs: InputsOf<CommandT>
+  CommandClass: new (inputs: InputsOf<CommandT>) => CommandT
   command: CommandT | undefined
   isLoading: boolean = false
   isFailure: boolean = false
@@ -16,22 +14,22 @@ export default class Query<
   failure: any
 
   constructor (
-    CommandClass: new (inputs: InputsT) => CommandT,
-    inputs: InputsT | undefined = undefined
+    CommandClass: new (inputs: InputsOf<CommandT>) => CommandT,
+    inputs: InputsOf<CommandT> | undefined = undefined
   ) {
     this.CommandClass = CommandClass
-    this.inputs = inputs ?? (undefined as unknown as InputsT)
+    this.inputs = inputs ?? (undefined as unknown as InputsOf<CommandT>)
   }
 
-  get outcome (): null | Outcome<ResultT, ErrorT> {
+  get outcome (): null | Outcome<ResultOf<CommandT>, ErrorOf<CommandT>> {
     return this.command?.outcome ?? null
   }
 
-  get result (): null | ResultT {
+  get result (): null | ResultOf<CommandT> {
     return this.command?.outcome?.result ?? null
   }
 
-  get errors (): null | ErrorT[] {
+  get errors (): null | Array<ErrorOf<CommandT>> {
     return this.command?.outcome?.errors ?? null
   }
 
@@ -43,7 +41,7 @@ export default class Query<
     this.listeners.forEach(listener => { listener() })
   }
 
-  setInputs (inputs: InputsT): void {
+  setInputs (inputs: InputsOf<CommandT>): void {
     this.inputs = inputs
     this.setDirty()
   }
