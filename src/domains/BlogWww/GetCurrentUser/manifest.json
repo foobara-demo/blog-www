@@ -1,0 +1,175 @@
+{
+  "scoped_path": [
+    "BlogWww",
+    "GetCurrentUser"
+  ],
+  "scoped_name": "BlogWww::GetCurrentUser",
+  "scoped_short_name": "GetCurrentUser",
+  "scoped_prefix": [
+    "BlogWww"
+  ],
+  "scoped_full_path": [
+    "BlogWww",
+    "GetCurrentUser"
+  ],
+  "scoped_full_name": "BlogWww::GetCurrentUser",
+  "scoped_category": "command",
+  "reference": "BlogWww::GetCurrentUser",
+  "domain": "global_organization::global_domain",
+  "organization": "global_organization",
+  "parent": [
+    "domain",
+    "global_organization::global_domain"
+  ],
+  "types_depended_on": [
+    "Foobara::Auth::Types::Role",
+    "Foobara::Auth::Types::User",
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "inputs_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "result_types_depended_on": [
+    "Foobara::Auth::Types::Role",
+    "array",
+    "attributes",
+    "detached_entity",
+    "duck",
+    "email",
+    "integer",
+    "string",
+    "symbol"
+  ],
+  "errors_types_depended_on": [
+    "array",
+    "attributes",
+    "duck",
+    "symbol"
+  ],
+  "possible_errors": {
+    "data.cannot_cast": {
+      "category": "data",
+      "symbol": "cannot_cast",
+      "key": "data.cannot_cast",
+      "error": "Foobara::Value::Processor::Casting::CannotCastError",
+      "processor_class": "Foobara::Value::Processor::Casting",
+      "processor_manifest_data": {
+        "casting": {
+          "cast_to": {
+            "type": "attributes",
+            "element_type_declarations": {}
+          }
+        }
+      }
+    },
+    "data.unexpected_attributes": {
+      "category": "data",
+      "symbol": "unexpected_attributes",
+      "key": "data.unexpected_attributes",
+      "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+      "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+      "processor_manifest_data": {
+        "element_type_declarations": {}
+      }
+    },
+    "runtime.unauthenticated": {
+      "category": "runtime",
+      "symbol": "unauthenticated",
+      "key": "runtime.unauthenticated",
+      "error": "Foobara::CommandConnector::UnauthenticatedError"
+    }
+  },
+  "inputs_type": {
+    "type": "attributes",
+    "element_type_declarations": {}
+  },
+  "description": null,
+  "result_type": {
+    "type": "Foobara::Auth::Types::User"
+  },
+  "result_transformers": [
+    {
+      "scoped_path": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types",
+        "User"
+      ],
+      "scoped_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "scoped_short_name": "User",
+      "scoped_prefix": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types"
+      ],
+      "scoped_full_path": [
+        "SensitiveValueRemover",
+        "Foobara",
+        "Auth",
+        "Types",
+        "User"
+      ],
+      "scoped_full_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "scoped_category": "processor",
+      "reference": "SensitiveValueRemover::Foobara::Auth::Types::User",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "processor_class": "Foobara::Entity::SensitiveValueRemovers::Entity"
+    }
+  ],
+  "errors_transformers": [
+    {
+      "scoped_path": [
+        "Transformers",
+        "AuthErrorsTransformer"
+      ],
+      "scoped_name": "Transformers::AuthErrorsTransformer",
+      "scoped_short_name": "AuthErrorsTransformer",
+      "scoped_prefix": [
+        "Transformers"
+      ],
+      "scoped_full_path": [
+        "Foobara",
+        "CommandConnectors",
+        "Transformers",
+        "AuthErrorsTransformer"
+      ],
+      "scoped_full_name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "domain": "Foobara::CommandConnectors",
+      "organization": "Foobara",
+      "parent": [
+        "domain",
+        "Foobara::CommandConnectors"
+      ],
+      "name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+      "processor_type": "transformer"
+    }
+  ],
+  "serializers": [
+    "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+    "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+    "Foobara::CommandConnectors::Serializers::JsonSerializer"
+  ],
+  "request_mutators": [
+    "Foobara::CommandConnectors::Http::SetInputToProcResult::Anon1"
+  ],
+  "requires_authentication": true,
+  "authenticator": {
+    "symbol": "bearer",
+    "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+  }
+}

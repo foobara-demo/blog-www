@@ -1,5 +1,180 @@
 {
   "command": {
+    "BlogWww::GetCurrentUser": {
+      "scoped_path": [
+        "BlogWww",
+        "GetCurrentUser"
+      ],
+      "scoped_name": "BlogWww::GetCurrentUser",
+      "scoped_short_name": "GetCurrentUser",
+      "scoped_prefix": [
+        "BlogWww"
+      ],
+      "scoped_full_path": [
+        "BlogWww",
+        "GetCurrentUser"
+      ],
+      "scoped_full_name": "BlogWww::GetCurrentUser",
+      "scoped_category": "command",
+      "reference": "BlogWww::GetCurrentUser",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "domain",
+        "global_organization::global_domain"
+      ],
+      "types_depended_on": [
+        "Foobara::Auth::Types::Role",
+        "Foobara::Auth::Types::User",
+        "array",
+        "attributes",
+        "detached_entity",
+        "duck",
+        "email",
+        "integer",
+        "string",
+        "symbol"
+      ],
+      "inputs_types_depended_on": [
+        "array",
+        "attributes",
+        "duck",
+        "symbol"
+      ],
+      "result_types_depended_on": [
+        "Foobara::Auth::Types::Role",
+        "array",
+        "attributes",
+        "detached_entity",
+        "duck",
+        "email",
+        "integer",
+        "string",
+        "symbol"
+      ],
+      "errors_types_depended_on": [
+        "array",
+        "attributes",
+        "duck",
+        "symbol"
+      ],
+      "possible_errors": {
+        "data.cannot_cast": {
+          "category": "data",
+          "symbol": "cannot_cast",
+          "key": "data.cannot_cast",
+          "error": "Foobara::Value::Processor::Casting::CannotCastError",
+          "processor_class": "Foobara::Value::Processor::Casting",
+          "processor_manifest_data": {
+            "casting": {
+              "cast_to": {
+                "type": "attributes",
+                "element_type_declarations": {}
+              }
+            }
+          }
+        },
+        "data.unexpected_attributes": {
+          "category": "data",
+          "symbol": "unexpected_attributes",
+          "key": "data.unexpected_attributes",
+          "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
+          "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
+          "processor_manifest_data": {
+            "element_type_declarations": {}
+          }
+        },
+        "runtime.unauthenticated": {
+          "category": "runtime",
+          "symbol": "unauthenticated",
+          "key": "runtime.unauthenticated",
+          "error": "Foobara::CommandConnector::UnauthenticatedError"
+        }
+      },
+      "inputs_type": {
+        "type": "attributes",
+        "element_type_declarations": {}
+      },
+      "description": null,
+      "result_type": {
+        "type": "Foobara::Auth::Types::User"
+      },
+      "result_transformers": [
+        {
+          "scoped_path": [
+            "SensitiveValueRemover",
+            "Foobara",
+            "Auth",
+            "Types",
+            "User"
+          ],
+          "scoped_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+          "scoped_short_name": "User",
+          "scoped_prefix": [
+            "SensitiveValueRemover",
+            "Foobara",
+            "Auth",
+            "Types"
+          ],
+          "scoped_full_path": [
+            "SensitiveValueRemover",
+            "Foobara",
+            "Auth",
+            "Types",
+            "User"
+          ],
+          "scoped_full_name": "SensitiveValueRemover::Foobara::Auth::Types::User",
+          "scoped_category": "processor",
+          "reference": "SensitiveValueRemover::Foobara::Auth::Types::User",
+          "domain": "global_organization::global_domain",
+          "organization": "global_organization",
+          "processor_class": "Foobara::Entity::SensitiveValueRemovers::Entity"
+        }
+      ],
+      "errors_transformers": [
+        {
+          "scoped_path": [
+            "Transformers",
+            "AuthErrorsTransformer"
+          ],
+          "scoped_name": "Transformers::AuthErrorsTransformer",
+          "scoped_short_name": "AuthErrorsTransformer",
+          "scoped_prefix": [
+            "Transformers"
+          ],
+          "scoped_full_path": [
+            "Foobara",
+            "CommandConnectors",
+            "Transformers",
+            "AuthErrorsTransformer"
+          ],
+          "scoped_full_name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+          "scoped_category": "processor_class",
+          "reference": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+          "domain": "Foobara::CommandConnectors",
+          "organization": "Foobara",
+          "parent": [
+            "domain",
+            "Foobara::CommandConnectors"
+          ],
+          "name": "Foobara::CommandConnectors::Transformers::AuthErrorsTransformer",
+          "processor_type": "transformer"
+        }
+      ],
+      "serializers": [
+        "Foobara::CommandConnectors::Serializers::ErrorsSerializer",
+        "Foobara::CommandConnectors::Serializers::AtomicSerializer",
+        "Foobara::CommandConnectors::Serializers::JsonSerializer"
+      ],
+      "request_mutators": [
+        "Foobara::CommandConnectors::Http::SetInputToProcResult::Anon1"
+      ],
+      "requires_authentication": true,
+      "authenticator": {
+        "symbol": "bearer",
+        "explanation": "Expects an access token in authorization header in format of: Bearer <token>"
+      }
+    },
     "ComputeExponent": {
       "scoped_path": [
         "ComputeExponent"
@@ -392,25 +567,20 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "13b8"
+            "plaintext_password_username_or_email"
           ],
-          "scoped_name": "13b8",
-          "scoped_short_name": "13b8",
+          "scoped_name": "plaintext_password_username_or_email",
+          "scoped_short_name": "plaintext_password_username_or_email",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "13b8"
+            "plaintext_password_username_or_email"
           ],
-          "scoped_full_name": "13b8",
-          "scoped_category": "processor_class",
-          "reference": "13b8",
+          "scoped_full_name": "plaintext_password_username_or_email",
+          "scoped_category": "processor",
+          "reference": "plaintext_password_username_or_email",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
-          "parent": [
-            "domain",
-            "global_organization::global_domain"
-          ],
-          "name": "Anonymous",
-          "processor_type": "transformer"
+          "processor_class": "Foobara::AttributesTransformers::Only::plaintext_password_username_or_email"
         }
       ],
       "serializers": [
@@ -486,29 +656,7 @@
             "casting": {
               "cast_to": {
                 "type": "attributes",
-                "element_type_declarations": {
-                  "refresh_token": {
-                    "allow_nil": true,
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "data.refresh_token.cannot_cast": {
-          "path": [
-            "refresh_token"
-          ],
-          "category": "data",
-          "symbol": "cannot_cast",
-          "key": "data.refresh_token.cannot_cast",
-          "error": "Foobara::Value::Processor::Casting::CannotCastError",
-          "processor_manifest_data": {
-            "casting": {
-              "cast_to": {
-                "allow_nil": true,
-                "type": "string"
+                "element_type_declarations": {}
               }
             }
           }
@@ -520,12 +668,7 @@
           "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
           "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
           "processor_manifest_data": {
-            "element_type_declarations": {
-              "refresh_token": {
-                "allow_nil": true,
-                "type": "string"
-              }
-            }
+            "element_type_declarations": {}
           }
         },
         "foobara::auth::verify_token>runtime.expired_token": {
@@ -606,7 +749,6 @@
         "array",
         "attributes",
         "duck",
-        "string",
         "symbol"
       ],
       "inputs_types_depended_on": [
@@ -626,7 +768,6 @@
         "array",
         "attributes",
         "duck",
-        "string",
         "symbol"
       ],
       "possible_errors": {
@@ -640,59 +781,9 @@
             "casting": {
               "cast_to": {
                 "type": "attributes",
-                "element_type_declarations": {
-                  "refresh_token": {
-                    "sensitive": true,
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "refresh_token"
-                ]
+                "element_type_declarations": {}
               }
             }
-          }
-        },
-        "data.missing_required_attribute": {
-          "category": "data",
-          "symbol": "missing_required_attribute",
-          "key": "data.missing_required_attribute",
-          "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
-          "processor_class": "Foobara::Value::Processor::Pipeline",
-          "processor_manifest_data": {
-            "pipeline": null
-          }
-        },
-        "data.refresh_token.cannot_cast": {
-          "path": [
-            "refresh_token"
-          ],
-          "category": "data",
-          "symbol": "cannot_cast",
-          "key": "data.refresh_token.cannot_cast",
-          "error": "Foobara::Value::Processor::Casting::CannotCastError",
-          "processor_manifest_data": {
-            "casting": {
-              "cast_to": {
-                "sensitive": true,
-                "type": "string"
-              }
-            }
-          }
-        },
-        "data.refresh_token.missing_required_attribute": {
-          "path": [
-            "refresh_token"
-          ],
-          "category": "data",
-          "symbol": "missing_required_attribute",
-          "key": "data.refresh_token.missing_required_attribute",
-          "error": "attributes::SupportedValidators::Required::MissingRequiredAttributeError",
-          "processor_class": "attributes::SupportedValidators::Required",
-          "processor_manifest_data": {
-            "required": [
-              "refresh_token"
-            ]
           }
         },
         "data.unexpected_attributes": {
@@ -702,12 +793,7 @@
           "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
           "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
           "processor_manifest_data": {
-            "element_type_declarations": {
-              "refresh_token": {
-                "sensitive": true,
-                "type": "string"
-              }
-            }
+            "element_type_declarations": {}
           }
         },
         "foobara::auth::verify_token>runtime.expired_token": {
@@ -752,25 +838,20 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "13c8"
+            "refresh_token"
           ],
-          "scoped_name": "13c8",
-          "scoped_short_name": "13c8",
+          "scoped_name": "refresh_token",
+          "scoped_short_name": "refresh_token",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "13c8"
+            "refresh_token"
           ],
-          "scoped_full_name": "13c8",
-          "scoped_category": "processor_class",
-          "reference": "13c8",
+          "scoped_full_name": "refresh_token",
+          "scoped_category": "processor",
+          "reference": "refresh_token",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
-          "parent": [
-            "domain",
-            "global_organization::global_domain"
-          ],
-          "name": "Anonymous",
-          "processor_type": "transformer"
+          "processor_class": "Foobara::AttributesTransformers::Only::refresh_token"
         }
       ],
       "serializers": [
@@ -1119,25 +1200,20 @@
       "inputs_transformers": [
         {
           "scoped_path": [
-            "13a8"
+            "email_plaintext_password_username"
           ],
-          "scoped_name": "13a8",
-          "scoped_short_name": "13a8",
+          "scoped_name": "email_plaintext_password_username",
+          "scoped_short_name": "email_plaintext_password_username",
           "scoped_prefix": null,
           "scoped_full_path": [
-            "13a8"
+            "email_plaintext_password_username"
           ],
-          "scoped_full_name": "13a8",
-          "scoped_category": "processor_class",
-          "reference": "13a8",
+          "scoped_full_name": "email_plaintext_password_username",
+          "scoped_category": "processor",
+          "reference": "email_plaintext_password_username",
           "domain": "global_organization::global_domain",
           "organization": "global_organization",
-          "parent": [
-            "domain",
-            "global_organization::global_domain"
-          ],
-          "name": "Anonymous",
-          "processor_type": "transformer"
+          "processor_class": "Foobara::AttributesTransformers::Only::email_plaintext_password_username"
         }
       ],
       "result_transformers": [
@@ -1212,7 +1288,6 @@
       ],
       "types": [
         "Foobara::Auth::Types::Role",
-        "Foobara::Auth::Types::Token",
         "Foobara::Auth::Types::User",
         "Foobara::Auth::token_state"
       ]
@@ -1233,6 +1308,7 @@
         "global_organization"
       ],
       "commands": [
+        "BlogWww::GetCurrentUser",
         "ComputeExponent"
       ],
       "types": [
@@ -1240,7 +1316,6 @@
         "associative_array",
         "atomic_duck",
         "attributes",
-        "datetime",
         "detached_entity",
         "duck",
         "duckture",
@@ -1454,18 +1529,13 @@
         "array",
         "attributes",
         "duck",
-        "string",
         "symbol"
       ],
       "category": "runtime",
       "symbol": "invalid_refresh_token",
       "context_type_declaration": {
         "type": "attributes",
-        "element_type_declarations": {
-          "refresh_token_id": {
-            "type": "string"
-          }
-        }
+        "element_type_declarations": {}
       },
       "is_fatal": true,
       "error_class": "Foobara::Auth::RefreshLogin::InvalidRefreshTokenError",
@@ -2754,110 +2824,6 @@
       ],
       "processor_class": "attributes::Casters::Hash"
     },
-    "datetime::Casters::date": {
-      "scoped_path": [
-        "Casters",
-        "date"
-      ],
-      "scoped_name": "Casters::date",
-      "scoped_short_name": "date",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "date"
-      ],
-      "scoped_full_name": "datetime::Casters::date",
-      "scoped_category": "processor",
-      "reference": "datetime::Casters::date",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "processor_class": "datetime::Casters::Date"
-    },
-    "datetime::Casters::hash": {
-      "scoped_path": [
-        "Casters",
-        "hash"
-      ],
-      "scoped_name": "Casters::hash",
-      "scoped_short_name": "hash",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "hash"
-      ],
-      "scoped_full_name": "datetime::Casters::hash",
-      "scoped_category": "processor",
-      "reference": "datetime::Casters::hash",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "processor_class": "datetime::Casters::Hash"
-    },
-    "datetime::Casters::seconds_since_epoch": {
-      "scoped_path": [
-        "Casters",
-        "seconds_since_epoch"
-      ],
-      "scoped_name": "Casters::seconds_since_epoch",
-      "scoped_short_name": "seconds_since_epoch",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "seconds_since_epoch"
-      ],
-      "scoped_full_name": "datetime::Casters::seconds_since_epoch",
-      "scoped_category": "processor",
-      "reference": "datetime::Casters::seconds_since_epoch",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "processor_class": "datetime::Casters::SecondsSinceEpoch"
-    },
-    "datetime::Casters::string": {
-      "scoped_path": [
-        "Casters",
-        "string"
-      ],
-      "scoped_name": "Casters::string",
-      "scoped_short_name": "string",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "string"
-      ],
-      "scoped_full_name": "datetime::Casters::string",
-      "scoped_category": "processor",
-      "reference": "datetime::Casters::string",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "processor_class": "datetime::Casters::String"
-    },
     "email::Transformers::downcase": {
       "scoped_path": [
         "Transformers",
@@ -3324,6 +3290,128 @@
     }
   },
   "processor_class": {
+    "Foobara::AttributesTransformers": {
+      "scoped_path": [
+        "AttributesTransformers"
+      ],
+      "scoped_name": "AttributesTransformers",
+      "scoped_short_name": "AttributesTransformers",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "AttributesTransformers"
+      ],
+      "scoped_full_name": "Foobara::AttributesTransformers",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::AttributesTransformers",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "organization",
+        "Foobara"
+      ],
+      "name": "Foobara::AttributesTransformers",
+      "processor_type": "transformer"
+    },
+    "Foobara::AttributesTransformers::Only": {
+      "scoped_path": [
+        "Only"
+      ],
+      "scoped_name": "Only",
+      "scoped_short_name": "Only",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "AttributesTransformers",
+        "Only"
+      ],
+      "scoped_full_name": "Foobara::AttributesTransformers::Only",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::AttributesTransformers::Only",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "processor_class",
+        "Foobara::AttributesTransformers"
+      ],
+      "name": "Foobara::AttributesTransformers::Only",
+      "processor_type": "transformer"
+    },
+    "Foobara::AttributesTransformers::Only::email_plaintext_password_username": {
+      "scoped_path": [
+        "email_plaintext_password_username"
+      ],
+      "scoped_name": "email_plaintext_password_username",
+      "scoped_short_name": "email_plaintext_password_username",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "AttributesTransformers",
+        "Only",
+        "email_plaintext_password_username"
+      ],
+      "scoped_full_name": "Foobara::AttributesTransformers::Only::email_plaintext_password_username",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::AttributesTransformers::Only::email_plaintext_password_username",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "processor_class",
+        "Foobara::AttributesTransformers::Only"
+      ],
+      "name": "Anonymous",
+      "processor_type": "transformer"
+    },
+    "Foobara::AttributesTransformers::Only::plaintext_password_username_or_email": {
+      "scoped_path": [
+        "plaintext_password_username_or_email"
+      ],
+      "scoped_name": "plaintext_password_username_or_email",
+      "scoped_short_name": "plaintext_password_username_or_email",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "AttributesTransformers",
+        "Only",
+        "plaintext_password_username_or_email"
+      ],
+      "scoped_full_name": "Foobara::AttributesTransformers::Only::plaintext_password_username_or_email",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::AttributesTransformers::Only::plaintext_password_username_or_email",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "processor_class",
+        "Foobara::AttributesTransformers::Only"
+      ],
+      "name": "Anonymous",
+      "processor_type": "transformer"
+    },
+    "Foobara::AttributesTransformers::Only::refresh_token": {
+      "scoped_path": [
+        "refresh_token"
+      ],
+      "scoped_name": "refresh_token",
+      "scoped_short_name": "refresh_token",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "AttributesTransformers",
+        "Only",
+        "refresh_token"
+      ],
+      "scoped_full_name": "Foobara::AttributesTransformers::Only::refresh_token",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::AttributesTransformers::Only::refresh_token",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "parent": [
+        "processor_class",
+        "Foobara::AttributesTransformers::Only"
+      ],
+      "name": "Anonymous",
+      "processor_type": "transformer"
+    },
     "Foobara::AuthHttp::ClearAccessTokenHeader": {
       "scoped_path": [
         "ClearAccessTokenHeader"
@@ -3418,6 +3506,60 @@
         "Foobara::AuthHttp"
       ],
       "name": "Foobara::AuthHttp::SetRefreshTokenFromCookie",
+      "processor_type": "mutator"
+    },
+    "Foobara::CommandConnectors::Http::SetInputToProcResult": {
+      "scoped_path": [
+        "Http",
+        "SetInputToProcResult"
+      ],
+      "scoped_name": "Http::SetInputToProcResult",
+      "scoped_short_name": "SetInputToProcResult",
+      "scoped_prefix": [
+        "Http"
+      ],
+      "scoped_full_path": [
+        "Foobara",
+        "CommandConnectors",
+        "Http",
+        "SetInputToProcResult"
+      ],
+      "scoped_full_name": "Foobara::CommandConnectors::Http::SetInputToProcResult",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::CommandConnectors::Http::SetInputToProcResult",
+      "domain": "Foobara::CommandConnectors",
+      "organization": "Foobara",
+      "parent": [
+        "domain",
+        "Foobara::CommandConnectors"
+      ],
+      "name": "Foobara::CommandConnectors::Http::SetInputToProcResult",
+      "processor_type": "mutator"
+    },
+    "Foobara::CommandConnectors::Http::SetInputToProcResult::Anon1": {
+      "scoped_path": [
+        "Anon1"
+      ],
+      "scoped_name": "Anon1",
+      "scoped_short_name": "Anon1",
+      "scoped_prefix": null,
+      "scoped_full_path": [
+        "Foobara",
+        "CommandConnectors",
+        "Http",
+        "SetInputToProcResult",
+        "Anon1"
+      ],
+      "scoped_full_name": "Foobara::CommandConnectors::Http::SetInputToProcResult::Anon1",
+      "scoped_category": "processor_class",
+      "reference": "Foobara::CommandConnectors::Http::SetInputToProcResult::Anon1",
+      "domain": "Foobara::CommandConnectors",
+      "organization": "Foobara",
+      "parent": [
+        "processor_class",
+        "Foobara::CommandConnectors::Http::SetInputToProcResult"
+      ],
+      "name": "Anonymous",
       "processor_type": "mutator"
     },
     "Foobara::CommandConnectors::Serializers::AtomicSerializer": {
@@ -3925,114 +4067,6 @@
       ],
       "name": "Foobara::BuiltinTypes::Attributes::Transformers::RemoveUnexpectedAttributes",
       "processor_type": "transformer"
-    },
-    "datetime::Casters::Date": {
-      "scoped_path": [
-        "Casters",
-        "Date"
-      ],
-      "scoped_name": "Casters::Date",
-      "scoped_short_name": "Date",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "Date"
-      ],
-      "scoped_full_name": "datetime::Casters::Date",
-      "scoped_category": "processor_class",
-      "reference": "datetime::Casters::Date",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "name": "Foobara::BuiltinTypes::Datetime::Casters::Date",
-      "processor_type": "caster"
-    },
-    "datetime::Casters::Hash": {
-      "scoped_path": [
-        "Casters",
-        "Hash"
-      ],
-      "scoped_name": "Casters::Hash",
-      "scoped_short_name": "Hash",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "Hash"
-      ],
-      "scoped_full_name": "datetime::Casters::Hash",
-      "scoped_category": "processor_class",
-      "reference": "datetime::Casters::Hash",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "name": "Foobara::BuiltinTypes::Datetime::Casters::Hash",
-      "processor_type": "caster"
-    },
-    "datetime::Casters::SecondsSinceEpoch": {
-      "scoped_path": [
-        "Casters",
-        "SecondsSinceEpoch"
-      ],
-      "scoped_name": "Casters::SecondsSinceEpoch",
-      "scoped_short_name": "SecondsSinceEpoch",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "SecondsSinceEpoch"
-      ],
-      "scoped_full_name": "datetime::Casters::SecondsSinceEpoch",
-      "scoped_category": "processor_class",
-      "reference": "datetime::Casters::SecondsSinceEpoch",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "name": "Foobara::BuiltinTypes::Datetime::Casters::SecondsSinceEpoch",
-      "processor_type": "caster"
-    },
-    "datetime::Casters::String": {
-      "scoped_path": [
-        "Casters",
-        "String"
-      ],
-      "scoped_name": "Casters::String",
-      "scoped_short_name": "String",
-      "scoped_prefix": [
-        "Casters"
-      ],
-      "scoped_full_path": [
-        "datetime",
-        "Casters",
-        "String"
-      ],
-      "scoped_full_name": "datetime::Casters::String",
-      "scoped_category": "processor_class",
-      "reference": "datetime::Casters::String",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "type",
-        "datetime"
-      ],
-      "name": "Foobara::BuiltinTypes::Datetime::Casters::String",
-      "processor_type": "caster"
     },
     "detached_entity::Casters::Hash": {
       "scoped_path": [
@@ -5058,213 +5092,6 @@
         "type": "integer"
       }
     },
-    "Foobara::Auth::Types::Token": {
-      "scoped_path": [
-        "Types",
-        "Token"
-      ],
-      "scoped_name": "Types::Token",
-      "scoped_short_name": "Token",
-      "scoped_prefix": [
-        "Types"
-      ],
-      "scoped_full_path": [
-        "Foobara",
-        "Auth",
-        "Types",
-        "Token"
-      ],
-      "scoped_full_name": "Foobara::Auth::Types::Token",
-      "scoped_category": "type",
-      "reference": "Foobara::Auth::Types::Token",
-      "domain": "Foobara::Auth",
-      "organization": "Foobara",
-      "parent": [
-        "domain",
-        "Foobara::Auth"
-      ],
-      "declaration_data": {
-        "type": "detached_entity",
-        "name": "Types::Token",
-        "model_module": "Foobara::Auth",
-        "model_class": "Foobara::Auth::Types::Token",
-        "model_base_class": "Foobara::DetachedEntity",
-        "attributes_declaration": {
-          "type": "attributes",
-          "element_type_declarations": {
-            "id": {
-              "type": "string"
-            },
-            "state": {
-              "type": "Foobara::Auth::token_state"
-            },
-            "token_parameters": {
-              "type": "duck"
-            },
-            "token_group": {
-              "allow_nil": true,
-              "type": "string"
-            },
-            "expires_at": {
-              "allow_nil": true,
-              "type": "datetime"
-            },
-            "created_at": {
-              "type": "datetime"
-            }
-          },
-          "required": [
-            "created_at",
-            "id",
-            "state",
-            "token_parameters"
-          ],
-          "defaults": {
-            "state": "needs_approval"
-          }
-        },
-        "primary_key": "id"
-      },
-      "possible_errors": {
-        "data.cannot_cast": {
-          "category": "data",
-          "symbol": "cannot_cast",
-          "key": "data.cannot_cast",
-          "error": "Foobara::Value::Processor::Casting::CannotCastError",
-          "processor_class": "Foobara::Value::Processor::Casting",
-          "processor_manifest_data": {
-            "casting": {
-              "cast_to": {
-                "type": "entity",
-                "name": "Types::Token",
-                "model_module": "Foobara::Auth",
-                "model_class": "Foobara::Auth::Types::Token",
-                "model_base_class": "Foobara::Entity",
-                "attributes_declaration": {
-                  "type": "attributes",
-                  "element_type_declarations": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "hashed_secret": {
-                      "sensitive": true,
-                      "type": "string"
-                    },
-                    "state": {
-                      "type": "Foobara::Auth::token_state"
-                    },
-                    "token_parameters": {
-                      "type": "duck"
-                    },
-                    "token_group": {
-                      "allow_nil": true,
-                      "type": "string"
-                    },
-                    "expires_at": {
-                      "allow_nil": true,
-                      "type": "datetime"
-                    },
-                    "created_at": {
-                      "type": "datetime"
-                    }
-                  },
-                  "required": [
-                    "created_at",
-                    "hashed_secret",
-                    "id",
-                    "state",
-                    "token_parameters"
-                  ],
-                  "defaults": {
-                    "state": "needs_approval"
-                  }
-                },
-                "primary_key": "id"
-              }
-            }
-          }
-        }
-      },
-      "name": "Types::Token",
-      "target_classes": [
-        "Foobara::Auth::Types::Token"
-      ],
-      "types_depended_on": [
-        "Foobara::Auth::token_state",
-        "array",
-        "attributes",
-        "datetime",
-        "detached_entity",
-        "duck",
-        "string",
-        "symbol"
-      ],
-      "description": null,
-      "base_type": "detached_entity",
-      "supported_casters": [
-        "duck::SupportedCasters::AllowNil"
-      ],
-      "supported_transformers": [
-        "model::SupportedTransformers::Mutable"
-      ],
-      "supported_validators": [
-        "duck::SupportedValidators::InstanceOf",
-        "duck::SupportedValidators::OneOf"
-      ],
-      "processors": {
-        "caster_classes": [
-          "entity::Casters::Hash",
-          "entity::Casters::PrimaryKey"
-        ],
-        "validator_classes": [
-          "entity::Validators::ModelInstanceIsValid"
-        ]
-      },
-      "attributes_type": {
-        "type": "attributes",
-        "element_type_declarations": {
-          "id": {
-            "type": "string"
-          },
-          "state": {
-            "type": "Foobara::Auth::token_state"
-          },
-          "token_parameters": {
-            "type": "duck"
-          },
-          "token_group": {
-            "allow_nil": true,
-            "type": "string"
-          },
-          "expires_at": {
-            "allow_nil": true,
-            "type": "datetime"
-          },
-          "created_at": {
-            "type": "datetime"
-          }
-        },
-        "required": [
-          "created_at",
-          "id",
-          "state",
-          "token_parameters"
-        ],
-        "defaults": {
-          "state": "needs_approval"
-        }
-      },
-      "organization_name": "Foobara",
-      "domain_name": "Auth",
-      "model_name": "Types::Token",
-      "model_base_class": "Foobara::Entity",
-      "model_class": "Foobara::Auth::Types::Token",
-      "entity_name": "Types::Token",
-      "primary_key_attribute": "id",
-      "primary_key_type": {
-        "type": "string"
-      }
-    },
     "Foobara::Auth::Types::User": {
       "scoped_path": [
         "Types",
@@ -5335,11 +5162,11 @@
           "processor_manifest_data": {
             "casting": {
               "cast_to": {
-                "type": "entity",
+                "type": "detached_entity",
                 "name": "Types::User",
                 "model_module": "Foobara::Auth",
                 "model_class": "Foobara::Auth::Types::User",
-                "model_base_class": "Foobara::Entity",
+                "model_base_class": "Foobara::DetachedEntity",
                 "attributes_declaration": {
                   "type": "attributes",
                   "element_type_declarations": {
@@ -5358,39 +5185,13 @@
                       "element_type_declaration": {
                         "type": "Foobara::Auth::Types::Role"
                       }
-                    },
-                    "api_keys": {
-                      "type": "array",
-                      "element_type_declaration": {
-                        "type": "Foobara::Auth::Types::Token"
-                      },
-                      "sensitive": true
-                    },
-                    "refresh_tokens": {
-                      "type": "array",
-                      "element_type_declaration": {
-                        "type": "Foobara::Auth::Types::Token"
-                      },
-                      "sensitive": true
-                    },
-                    "password_secret": {
-                      "sensitive": true,
-                      "allow_nil": true,
-                      "type": "Foobara::Auth::Types::Secret"
-                    },
-                    "reset_password_token": {
-                      "sensitive": true,
-                      "allow_nil": true,
-                      "type": "Foobara::Auth::Types::Token"
                     }
                   },
                   "required": [
                     "username"
                   ],
                   "defaults": {
-                    "roles": [],
-                    "api_keys": [],
-                    "refresh_tokens": []
+                    "roles": []
                   }
                 },
                 "primary_key": "id"
@@ -5401,7 +5202,7 @@
       },
       "name": "Types::User",
       "target_classes": [
-        "Foobara::Auth::Types::User"
+        null
       ],
       "types_depended_on": [
         "Foobara::Auth::Types::Role",
@@ -5428,11 +5229,11 @@
       ],
       "processors": {
         "caster_classes": [
-          "entity::Casters::Hash",
-          "entity::Casters::PrimaryKey"
+          "detached_entity::Casters::Hash",
+          "detached_entity::Casters::PrimaryKey"
         ],
         "validator_classes": [
-          "entity::Validators::ModelInstanceIsValid"
+          "detached_entity::Validators::ModelInstanceIsValid"
         ]
       },
       "attributes_type": {
@@ -5465,7 +5266,7 @@
       "organization_name": "Foobara",
       "domain_name": "Auth",
       "model_name": "Types::User",
-      "model_base_class": "Foobara::Entity",
+      "model_base_class": "Foobara::DetachedEntity",
       "model_class": "Foobara::Auth::Types::User",
       "depends_on": [
         "Foobara::Auth::Types::Role"
@@ -5587,6 +5388,194 @@
         "validator_classes": [
           "duck::SupportedValidators::OneOf"
         ]
+      }
+    },
+    "Types::User": {
+      "scoped_path": [
+        "Types",
+        "User"
+      ],
+      "scoped_name": "Types::User",
+      "scoped_short_name": "User",
+      "scoped_prefix": [
+        "Types"
+      ],
+      "scoped_full_path": [
+        "Types",
+        "User"
+      ],
+      "scoped_full_name": "Types::User",
+      "scoped_category": "type",
+      "reference": "Types::User",
+      "domain": "global_organization::global_domain",
+      "organization": "global_organization",
+      "declaration_data": {
+        "type": "detached_entity",
+        "name": "Types::User",
+        "model_module": "Foobara::Auth",
+        "model_class": "Foobara::Auth::Types::User",
+        "model_base_class": "Foobara::DetachedEntity",
+        "attributes_declaration": {
+          "type": "attributes",
+          "element_type_declarations": {
+            "id": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "allow_nil": true,
+              "type": "email"
+            },
+            "roles": {
+              "type": "array",
+              "element_type_declaration": {
+                "type": "Foobara::Auth::Types::Role"
+              }
+            }
+          },
+          "required": [
+            "username"
+          ],
+          "defaults": {
+            "roles": []
+          }
+        },
+        "primary_key": "id"
+      },
+      "possible_errors": {
+        "data.cannot_cast": {
+          "category": "data",
+          "symbol": "cannot_cast",
+          "key": "data.cannot_cast",
+          "error": "Foobara::Value::Processor::Casting::CannotCastError",
+          "processor_class": "Foobara::Value::Processor::Casting",
+          "processor_manifest_data": {
+            "casting": {
+              "cast_to": {
+                "type": "detached_entity",
+                "name": "Types::User",
+                "model_module": "Foobara::Auth",
+                "model_class": "Foobara::Auth::Types::User",
+                "model_base_class": "Foobara::DetachedEntity",
+                "attributes_declaration": {
+                  "type": "attributes",
+                  "element_type_declarations": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "allow_nil": true,
+                      "type": "email"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "element_type_declaration": {
+                        "type": "Foobara::Auth::Types::Role"
+                      }
+                    }
+                  },
+                  "required": [
+                    "username"
+                  ],
+                  "defaults": {
+                    "roles": []
+                  }
+                },
+                "primary_key": "id"
+              }
+            }
+          }
+        }
+      },
+      "name": "Types::User",
+      "target_classes": [
+        null
+      ],
+      "types_depended_on": [
+        "Foobara::Auth::Types::Role",
+        "array",
+        "attributes",
+        "detached_entity",
+        "duck",
+        "email",
+        "integer",
+        "string",
+        "symbol"
+      ],
+      "description": null,
+      "base_type": "detached_entity",
+      "supported_casters": [
+        "duck::SupportedCasters::AllowNil"
+      ],
+      "supported_transformers": [
+        "model::SupportedTransformers::Mutable"
+      ],
+      "supported_validators": [
+        "duck::SupportedValidators::InstanceOf",
+        "duck::SupportedValidators::OneOf"
+      ],
+      "processors": {
+        "caster_classes": [
+          "detached_entity::Casters::Hash",
+          "detached_entity::Casters::PrimaryKey"
+        ],
+        "validator_classes": [
+          "detached_entity::Validators::ModelInstanceIsValid"
+        ]
+      },
+      "attributes_type": {
+        "type": "attributes",
+        "element_type_declarations": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "allow_nil": true,
+            "type": "email"
+          },
+          "roles": {
+            "type": "array",
+            "element_type_declaration": {
+              "type": "Foobara::Auth::Types::Role"
+            }
+          }
+        },
+        "required": [
+          "username"
+        ],
+        "defaults": {
+          "roles": []
+        }
+      },
+      "organization_name": "global_organization",
+      "domain_name": "global_domain",
+      "model_name": "Types::User",
+      "model_base_class": "Foobara::DetachedEntity",
+      "model_class": "Foobara::Auth::Types::User",
+      "depends_on": [
+        "Foobara::Auth::Types::Role"
+      ],
+      "deep_depends_on": [
+        "Foobara::Auth::Types::Role"
+      ],
+      "associations": {
+        "roles.#": "Foobara::Auth::Types::Role"
+      },
+      "deep_associations": {
+        "roles.#": "Foobara::Auth::Types::Role"
+      },
+      "entity_name": "Types::User",
+      "primary_key_attribute": "id",
+      "primary_key_type": {
+        "type": "integer"
       }
     },
     "array": {
@@ -5866,80 +5855,6 @@
         ],
         "transformer_classes": [
           "attributes::Transformers::RemoveUnexpectedAttributes"
-        ]
-      }
-    },
-    "datetime": {
-      "scoped_path": [
-        "datetime"
-      ],
-      "scoped_name": "datetime",
-      "scoped_short_name": "datetime",
-      "scoped_prefix": null,
-      "scoped_full_path": [
-        "datetime"
-      ],
-      "scoped_full_name": "datetime",
-      "scoped_category": "type",
-      "reference": "datetime",
-      "domain": "global_organization::global_domain",
-      "organization": "global_organization",
-      "parent": [
-        "domain",
-        "global_organization::global_domain"
-      ],
-      "declaration_data": {
-        "type": "datetime"
-      },
-      "possible_errors": {
-        "data.cannot_cast": {
-          "category": "data",
-          "symbol": "cannot_cast",
-          "key": "data.cannot_cast",
-          "error": "Foobara::Value::Processor::Casting::CannotCastError",
-          "processor_class": "Foobara::Value::Processor::Casting",
-          "processor_manifest_data": {
-            "casting": {
-              "cast_to": {
-                "type": "datetime"
-              }
-            }
-          }
-        }
-      },
-      "name": "datetime",
-      "target_classes": [
-        "Time"
-      ],
-      "types_depended_on": [
-        "array",
-        "atomic_duck",
-        "attributes",
-        "duck",
-        "symbol"
-      ],
-      "builtin": true,
-      "description": "Built-in datetime type",
-      "base_type": "atomic_duck",
-      "supported_casters": [
-        "duck::SupportedCasters::AllowNil"
-      ],
-      "supported_validators": [
-        "duck::SupportedValidators::InstanceOf",
-        "duck::SupportedValidators::OneOf"
-      ],
-      "processors": {
-        "casters": [
-          "datetime::Casters::date",
-          "datetime::Casters::hash",
-          "datetime::Casters::seconds_since_epoch",
-          "datetime::Casters::string"
-        ],
-        "caster_classes": [
-          "datetime::Casters::Date",
-          "datetime::Casters::Hash",
-          "datetime::Casters::SecondsSinceEpoch",
-          "datetime::Casters::String"
         ]
       }
     },
@@ -6717,7 +6632,7 @@
     }
   },
   "metadata": {
-    "when": "2025-05-05 20:17:51 +0000",
-    "url": "https://app.blog.playground.foobara.com:80/manifest"
+    "when": "2025-05-12 12:35:26 -0700",
+    "url": "http://localhost:3000/manifest"
   }
 }

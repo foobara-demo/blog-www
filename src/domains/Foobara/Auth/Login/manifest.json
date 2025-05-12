@@ -208,25 +208,20 @@
   "inputs_transformers": [
     {
       "scoped_path": [
-        "13b8"
+        "plaintext_password_username_or_email"
       ],
-      "scoped_name": "13b8",
-      "scoped_short_name": "13b8",
+      "scoped_name": "plaintext_password_username_or_email",
+      "scoped_short_name": "plaintext_password_username_or_email",
       "scoped_prefix": null,
       "scoped_full_path": [
-        "13b8"
+        "plaintext_password_username_or_email"
       ],
-      "scoped_full_name": "13b8",
-      "scoped_category": "processor_class",
-      "reference": "13b8",
+      "scoped_full_name": "plaintext_password_username_or_email",
+      "scoped_category": "processor",
+      "reference": "plaintext_password_username_or_email",
       "domain": "global_organization::global_domain",
       "organization": "global_organization",
-      "parent": [
-        "domain",
-        "global_organization::global_domain"
-      ],
-      "name": "Anonymous",
-      "processor_type": "transformer"
+      "processor_class": "Foobara::AttributesTransformers::Only::plaintext_password_username_or_email"
     }
   ],
   "serializers": [

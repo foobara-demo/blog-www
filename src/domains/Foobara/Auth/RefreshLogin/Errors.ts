@@ -8,17 +8,9 @@ import { type CannotCastError } from '../../../base/processors/Foobara/Value/Pro
 
 import { type UnexpectedAttributesError } from '../../../base/processors/attributes/SupportedProcessors/UnexpectedAttributesError'
 
-import { type MissingRequiredAttributeError } from '../../../base/processors/attributes/SupportedValidators/MissingRequiredAttributeError'
-
 export interface PossibleErrors {
 
   'data.cannot_cast': CannotCastError
-
-  'data.missing_required_attribute': MissingRequiredAttributeError
-
-  'data.refresh_token.cannot_cast': CannotCastError
-
-  'data.refresh_token.missing_required_attribute': MissingRequiredAttributeError
 
   'data.unexpected_attributes': UnexpectedAttributesError
 
@@ -32,7 +24,6 @@ export interface PossibleErrors {
 
 export type Error = CannotCastError |
 InvalidRefreshTokenError |
-MissingRequiredAttributeError |
 UnexpectedAttributesError |
 ExpiredTokenError |
 InactiveTokenError

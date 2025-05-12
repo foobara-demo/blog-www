@@ -57,29 +57,7 @@
         "casting": {
           "cast_to": {
             "type": "attributes",
-            "element_type_declarations": {
-              "refresh_token": {
-                "allow_nil": true,
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    },
-    "data.refresh_token.cannot_cast": {
-      "path": [
-        "refresh_token"
-      ],
-      "category": "data",
-      "symbol": "cannot_cast",
-      "key": "data.refresh_token.cannot_cast",
-      "error": "Foobara::Value::Processor::Casting::CannotCastError",
-      "processor_manifest_data": {
-        "casting": {
-          "cast_to": {
-            "allow_nil": true,
-            "type": "string"
+            "element_type_declarations": {}
           }
         }
       }
@@ -91,12 +69,7 @@
       "error": "attributes::SupportedProcessors::ElementTypeDeclarations::UnexpectedAttributesError",
       "processor_class": "attributes::SupportedProcessors::ElementTypeDeclarations",
       "processor_manifest_data": {
-        "element_type_declarations": {
-          "refresh_token": {
-            "allow_nil": true,
-            "type": "string"
-          }
-        }
+        "element_type_declarations": {}
       }
     },
     "foobara::auth::verify_token>runtime.expired_token": {

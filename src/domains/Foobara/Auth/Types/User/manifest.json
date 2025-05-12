@@ -68,11 +68,11 @@
       "processor_manifest_data": {
         "casting": {
           "cast_to": {
-            "type": "entity",
+            "type": "detached_entity",
             "name": "Types::User",
             "model_module": "Foobara::Auth",
             "model_class": "Foobara::Auth::Types::User",
-            "model_base_class": "Foobara::Entity",
+            "model_base_class": "Foobara::DetachedEntity",
             "attributes_declaration": {
               "type": "attributes",
               "element_type_declarations": {
@@ -91,39 +91,13 @@
                   "element_type_declaration": {
                     "type": "Foobara::Auth::Types::Role"
                   }
-                },
-                "api_keys": {
-                  "type": "array",
-                  "element_type_declaration": {
-                    "type": "Foobara::Auth::Types::Token"
-                  },
-                  "sensitive": true
-                },
-                "refresh_tokens": {
-                  "type": "array",
-                  "element_type_declaration": {
-                    "type": "Foobara::Auth::Types::Token"
-                  },
-                  "sensitive": true
-                },
-                "password_secret": {
-                  "sensitive": true,
-                  "allow_nil": true,
-                  "type": "Foobara::Auth::Types::Secret"
-                },
-                "reset_password_token": {
-                  "sensitive": true,
-                  "allow_nil": true,
-                  "type": "Foobara::Auth::Types::Token"
                 }
               },
               "required": [
                 "username"
               ],
               "defaults": {
-                "roles": [],
-                "api_keys": [],
-                "refresh_tokens": []
+                "roles": []
               }
             },
             "primary_key": "id"
@@ -134,7 +108,7 @@
   },
   "name": "Types::User",
   "target_classes": [
-    "Foobara::Auth::Types::User"
+    null
   ],
   "types_depended_on": [
     "Foobara::Auth::Types::Role",
@@ -161,11 +135,11 @@
   ],
   "processors": {
     "caster_classes": [
-      "entity::Casters::Hash",
-      "entity::Casters::PrimaryKey"
+      "detached_entity::Casters::Hash",
+      "detached_entity::Casters::PrimaryKey"
     ],
     "validator_classes": [
-      "entity::Validators::ModelInstanceIsValid"
+      "detached_entity::Validators::ModelInstanceIsValid"
     ]
   },
   "attributes_type": {
@@ -198,7 +172,7 @@
   "organization_name": "Foobara",
   "domain_name": "Auth",
   "model_name": "Types::User",
-  "model_base_class": "Foobara::Entity",
+  "model_base_class": "Foobara::DetachedEntity",
   "model_class": "Foobara::Auth::Types::User",
   "depends_on": [
     "Foobara::Auth::Types::Role"

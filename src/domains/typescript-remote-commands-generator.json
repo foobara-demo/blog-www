@@ -1,4 +1,9 @@
 [
+  "BlogWww/GetCurrentUser/Errors.ts",
+  "BlogWww/GetCurrentUser/Inputs.ts",
+  "BlogWww/GetCurrentUser/Result.ts",
+  "BlogWww/GetCurrentUser/index.ts",
+  "BlogWww/GetCurrentUser/manifest.json",
   "ComputeExponent/Errors.ts",
   "ComputeExponent/Inputs.ts",
   "ComputeExponent/Result.ts",

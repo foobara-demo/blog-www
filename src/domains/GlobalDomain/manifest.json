@@ -14,6 +14,7 @@
     "global_organization"
   ],
   "commands": [
+    "BlogWww::GetCurrentUser",
     "ComputeExponent"
   ],
   "types": [
@@ -21,7 +22,6 @@
     "associative_array",
     "atomic_duck",
     "attributes",
-    "datetime",
     "detached_entity",
     "duck",
     "duckture",

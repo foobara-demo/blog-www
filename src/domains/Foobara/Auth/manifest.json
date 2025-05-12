@@ -26,7 +26,6 @@
   ],
   "types": [
     "Foobara::Auth::Types::Role",
-    "Foobara::Auth::Types::Token",
     "Foobara::Auth::Types::User",
     "Foobara::Auth::token_state"
   ]

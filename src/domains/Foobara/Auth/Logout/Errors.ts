@@ -12,8 +12,6 @@ export interface PossibleErrors {
 
   'data.cannot_cast': CannotCastError
 
-  'data.refresh_token.cannot_cast': CannotCastError
-
   'data.unexpected_attributes': UnexpectedAttributesError
 
   'foobara::auth::verify_token>runtime.expired_token': ExpiredTokenError

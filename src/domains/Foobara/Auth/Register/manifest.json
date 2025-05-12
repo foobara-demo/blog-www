@@ -327,25 +327,20 @@
   "inputs_transformers": [
     {
       "scoped_path": [
-        "13a8"
+        "email_plaintext_password_username"
       ],
-      "scoped_name": "13a8",
-      "scoped_short_name": "13a8",
+      "scoped_name": "email_plaintext_password_username",
+      "scoped_short_name": "email_plaintext_password_username",
       "scoped_prefix": null,
       "scoped_full_path": [
-        "13a8"
+        "email_plaintext_password_username"
       ],
-      "scoped_full_name": "13a8",
-      "scoped_category": "processor_class",
-      "reference": "13a8",
+      "scoped_full_name": "email_plaintext_password_username",
+      "scoped_category": "processor",
+      "reference": "email_plaintext_password_username",
       "domain": "global_organization::global_domain",
       "organization": "global_organization",
-      "parent": [
-        "domain",
-        "global_organization::global_domain"
-      ],
-      "name": "Anonymous",
-      "processor_type": "transformer"
+      "processor_class": "Foobara::AttributesTransformers::Only::email_plaintext_password_username"
     }
   ],
   "result_transformers": [
