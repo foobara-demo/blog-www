@@ -41,6 +41,14 @@ const Header: React.FC = () => (
         </li>
         <li>
           <NavLink
+            to="/get-current-user"
+            end
+            className={activeClassName}>
+            Get Current User
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/refresh-login"
             end
             className={activeClassName}>
