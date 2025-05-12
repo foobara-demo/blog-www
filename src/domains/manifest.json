@@ -894,7 +894,7 @@
       ],
       "types_depended_on": [
         "Foobara::Auth::Types::Role",
-        "Foobara::Auth::Types::User",
+        "Types::User",
         "array",
         "attributes",
         "detached_entity",
@@ -1195,7 +1195,7 @@
       },
       "description": null,
       "result_type": {
-        "type": "Foobara::Auth::Types::User"
+        "type": "Types::User"
       },
       "inputs_transformers": [
         {
@@ -6632,7 +6632,7 @@
     }
   },
   "metadata": {
-    "when": "2025-05-12 12:35:26 -0700",
+    "when": "2025-05-12 12:42:39 -0700",
     "url": "http://localhost:3000/manifest"
   }
 }

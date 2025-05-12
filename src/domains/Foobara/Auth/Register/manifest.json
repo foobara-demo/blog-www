@@ -21,7 +21,7 @@
   ],
   "types_depended_on": [
     "Foobara::Auth::Types::Role",
-    "Foobara::Auth::Types::User",
+    "Types::User",
     "array",
     "attributes",
     "detached_entity",
@@ -322,7 +322,7 @@
   },
   "description": null,
   "result_type": {
-    "type": "Foobara::Auth::Types::User"
+    "type": "Types::User"
   },
   "inputs_transformers": [
     {

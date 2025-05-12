@@ -1,4 +1,4 @@
-import { type LoadedUser } from '../../../Foobara/Auth/Types/User/Loaded'
+import { type LoadedUser } from '../../../Types/User/Loaded'
 
 type Result = LoadedUser
 
