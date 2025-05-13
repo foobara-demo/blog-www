@@ -1,17 +1,12 @@
 import type RemoteCommand from '../base/RemoteCommand'
 import Query from '../base/Query'
-import { type InputsOf } from '../base/RemoteCommandTypes'
+import { type InputsOf, type RemoteCommandConstructor } from '../base/RemoteCommandTypes'
 
 const queryCache = new Map<string, Query<RemoteCommand<any, any, any>>>()
 
-interface RemoteCommandConstructor<CommandT extends RemoteCommand<any, any, any>> {
-  new (inputs: InputsOf<CommandT>): CommandT
-  fullCommandName: string
-}
-
 export function getQuery<CommandT extends RemoteCommand<any, any, any>> (
   CommandClass: RemoteCommandConstructor<CommandT>,
-  inputs: InputsOf<CommandT>
+  inputs: InputsOf<CommandT> | undefined = undefined
 ): Query<CommandT> {
   const key: string = toKey(CommandClass, inputs)
   const hit = queryCache.get(key)
@@ -23,6 +18,7 @@ export function getQuery<CommandT extends RemoteCommand<any, any, any>> (
   let query: Query<CommandT>
   if (arguments.length === 2) {
     query = new Query<CommandT>(CommandClass, inputs)
+    query.run()
   } else {
     query = new Query<CommandT>(CommandClass)
   }
@@ -39,9 +35,9 @@ export function getQuery<CommandT extends RemoteCommand<any, any, any>> (
 
 function toKey<CommandT extends RemoteCommand<any, any, any>> (
   CommandClass: RemoteCommandConstructor<CommandT>,
-  inputs: InputsOf<CommandT>
+  inputs: InputsOf<CommandT> | undefined
 ): string {
-  let key = CommandClass.fullCommandName
+  let key: string = CommandClass.fullCommandName
 
   if (inputs != null) {
     key += JSON.stringify(inputs)

@@ -1,27 +1,29 @@
-import { type FoobaraError } from '../base/Error'
 import type RemoteCommand from '../base/RemoteCommand'
 import { type Outcome } from '../base/Outcome'
-import { type InputsOf, type ResultOf, type ErrorOf } from '../base/RemoteCommandTypes'
-import Query from '../base/Query'
+import {
+  type InputsOf, type ResultOf, type ErrorOf, type RemoteCommandConstructor
+} from '../base/RemoteCommandTypes'
+import type Query from '../base/Query'
 import { useState, useRef, useEffect } from 'react'
+import { getQuery } from '../base/QueryCache'
 
-interface QueryState<InputsT, ResultT, ErrorT extends FoobaraError> {
+interface QueryState<CommandT extends RemoteCommand<any, any, any>> {
   isLoading: boolean
   isPending: boolean
   isFailure: boolean
   isSuccess: boolean
   isError: boolean
-  outcome: null | Outcome<ResultT, ErrorT>
-  result: null | ResultT
-  errors: null | ErrorT[]
+  outcome: null | Outcome<ResultOf<CommandT>, ErrorOf<CommandT>>
+  result: null | ResultOf<CommandT>
+  errors: null | Array<ErrorOf<CommandT>>
   failure: any
-  setInputs: (inputs: InputsT) => void
+  setInputs: (inputs: InputsOf<CommandT>) => void
   setDirty: () => void
 }
 
-function queryToQueryState<InputsT, ResultT, ErrorT extends FoobaraError> (
-  query: Query<RemoteCommand<InputsT, ResultT, ErrorT>>
-): QueryState<InputsT, ResultT, ErrorT> {
+function queryToQueryState<CommandT extends RemoteCommand<any, any, any>> (
+  query: Query<CommandT>
+): QueryState<CommandT> {
   return {
     isLoading: query.isLoading,
     isPending: query.isPending,
@@ -32,37 +34,41 @@ function queryToQueryState<InputsT, ResultT, ErrorT extends FoobaraError> (
     result: query.result,
     errors: query.errors,
     failure: query.failure,
-    setInputs: (inputs: InputsT) => { query.setInputs(inputs) },
+    setInputs: (inputs: InputsOf<CommandT>) => { query.setInputs(inputs) },
     setDirty: () => { query.setDirty() }
   }
 }
 
 export default function useQuery<CommandT extends RemoteCommand<any, any, any>> (
-  CommandClass: new (inputs: InputsOf<CommandT>) => CommandT,
+  CommandClass: RemoteCommandConstructor<CommandT>,
   inputs: InputsOf<CommandT> | undefined = undefined
-): QueryState<InputsOf<CommandT>, ResultOf<CommandT>, ErrorOf<CommandT>> {
+): QueryState<CommandT> {
   const queryRef = useRef<Query<CommandT>>(null)
 
-  if (queryRef.current == null) {
-    queryRef.current = new Query<CommandT>(CommandClass, inputs)
-  }
+  let query = queryRef.current
 
-  const query = queryRef.current
-
-  useEffect(() => {
-    const unsubscribe = query.onChange(() => {
-      setQueryState(queryToQueryState(query))
-    })
-
+  if (query == null) {
     if (arguments.length === 2) {
-      query.run()
+      query = getQuery(CommandClass, inputs as InputsOf<CommandT>)
+    } else {
+      query = getQuery(CommandClass)
     }
 
-    return unsubscribe
-  }, [])
+    queryRef.current = query
+  }
 
-  const [queryState, setQueryState] = useState<QueryState<InputsOf<CommandT>, ResultOf<CommandT>, ErrorOf<CommandT>>>(
-    queryToQueryState(query)
+  useEffect(() => {
+    const unsubscribe = query?.onChange(() => {
+      if (query != null) { // just here to satisfy type checker
+        setQueryState(queryToQueryState<CommandT>(query))
+      }
+    })
+
+    return unsubscribe
+  }, [query])
+
+  const [queryState, setQueryState] = useState<QueryState<CommandT>>(
+    queryToQueryState<CommandT>(query)
   )
 
   return queryState

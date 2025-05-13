@@ -8,6 +8,8 @@ const activeClassName = ({ isActive }: { isActive: boolean }) => (isActive ? 'ac
 const Header: React.FC = () => {
   const { result, isLoading } = useQuery<GetCurrentUser>(GetCurrentUser, undefined)
 
+  console.log('current user', result, isLoading)
+
   return (
     <header className="header">
       <nav className="nav">

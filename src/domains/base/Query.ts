@@ -1,10 +1,12 @@
 import type RemoteCommand from '../base/RemoteCommand'
 import { type Outcome } from '../base/Outcome'
-import { type InputsOf, type ResultOf, type ErrorOf } from './RemoteCommandTypes'
+import {
+  type InputsOf, type ResultOf, type ErrorOf, type RemoteCommandConstructor
+} from './RemoteCommandTypes'
 
 export default class Query<CommandT extends RemoteCommand<any, any, any>> {
   inputs: InputsOf<CommandT>
-  CommandClass: new (inputs: InputsOf<CommandT>) => CommandT
+  CommandClass: RemoteCommandConstructor<CommandT>
   command: CommandT | undefined
   isLoading: boolean = false
   isFailure: boolean = false
@@ -15,7 +17,7 @@ export default class Query<CommandT extends RemoteCommand<any, any, any>> {
   failure: any
 
   constructor (
-    CommandClass: new (inputs: InputsOf<CommandT>) => CommandT,
+    CommandClass: RemoteCommandConstructor<CommandT>,
     inputs: InputsOf<CommandT> | undefined = undefined
   ) {
     this.CommandClass = CommandClass
