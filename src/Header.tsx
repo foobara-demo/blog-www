@@ -6,7 +6,7 @@ import useQuery from './domains/hooks/useQuery'
 const activeClassName = ({ isActive }: { isActive: boolean }) => (isActive ? 'active' : '')
 
 const Header: React.FC = () => {
-  const { result, isLoading } = useQuery<GetCurrentUser>(GetCurrentUser, {})
+  const { result, isLoading } = useQuery<GetCurrentUser>(GetCurrentUser, undefined)
 
   return (
     <header className="header">
