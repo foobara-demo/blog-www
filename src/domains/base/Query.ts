@@ -11,6 +11,7 @@ export default class Query<CommandT extends RemoteCommand<any, any, any>> {
   isDirty: boolean = false
   ranWhileRunning: boolean = false
   listeners: Array<() => void> = []
+  inputsChangedListeners: Array<() => void> = []
   failure: any
 
   constructor (
@@ -43,12 +44,28 @@ export default class Query<CommandT extends RemoteCommand<any, any, any>> {
     }
   }
 
+  onInputsChange (callback: () => void): () => void {
+    this.inputsChangedListeners.push(callback)
+
+    return () => {
+      const index = this.inputsChangedListeners.indexOf(callback)
+      if (index !== -1) {
+        this.inputsChangedListeners.splice(index, 1)
+      }
+    }
+  }
+
   fireChange (): void {
     this.listeners.forEach(listener => { listener() })
   }
 
+  fireInputsChanged (): void {
+    this.inputsChangedListeners.forEach(listener => { listener() })
+  }
+
   setInputs (inputs: InputsOf<CommandT>): void {
     this.inputs = inputs
+    this.fireInputsChanged()
     this.setDirty()
   }
 
