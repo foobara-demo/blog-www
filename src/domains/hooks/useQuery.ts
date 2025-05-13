@@ -40,7 +40,7 @@ function queryToQueryState<InputsT, ResultT, ErrorT extends FoobaraError> (
 export default function useQuery<CommandT extends RemoteCommand<any, any, any>> (
   CommandClass: new (inputs: InputsOf<CommandT>) => CommandT,
   inputs: InputsOf<CommandT> | undefined = undefined
-) {
+): QueryState<InputsOf<CommandT>, ResultOf<CommandT>, ErrorOf<CommandT>> {
   const queryRef = useRef<Query<CommandT>>(null)
 
   if (queryRef.current == null) {
