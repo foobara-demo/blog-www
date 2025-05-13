@@ -3,7 +3,7 @@ import type RemoteCommand from '../base/RemoteCommand'
 import { type Outcome } from '../base/Outcome'
 import { type InputsOf, type ResultOf, type ErrorOf } from '../base/RemoteCommandTypes'
 import Query from '../base/Query'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 interface QueryState<InputsT, ResultT, ErrorT extends FoobaraError> {
   isLoading: boolean
@@ -45,20 +45,25 @@ export default function useQuery<CommandT extends RemoteCommand<any, any, any>> 
 
   if (queryRef.current == null) {
     queryRef.current = new Query<CommandT>(CommandClass, inputs)
+  }
+
+  const query = queryRef.current
+
+  useEffect(() => {
+    const unsubscribe = query.onChange(() => {
+      setQueryState(queryToQueryState(query))
+    })
 
     if (arguments.length === 2) {
-      queryRef.current.run()
+      query.run()
     }
-  }
-  const query = queryRef.current
+
+    return unsubscribe
+  }, [])
 
   const [queryState, setQueryState] = useState<QueryState<InputsOf<CommandT>, ResultOf<CommandT>, ErrorOf<CommandT>>>(
     queryToQueryState(query)
   )
-
-  query.onChange(() => {
-    setQueryState(queryToQueryState(query))
-  })
 
   return queryState
 }

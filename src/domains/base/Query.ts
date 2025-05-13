@@ -33,8 +33,14 @@ export default class Query<CommandT extends RemoteCommand<any, any, any>> {
     return this.command?.outcome?.errors ?? null
   }
 
-  onChange (callback: () => void): void {
+  onChange (callback: () => void): () => void {
     this.listeners.push(callback)
+    return () => {
+      const index = this.listeners.indexOf(callback)
+      if (index !== -1) {
+        this.listeners.splice(index, 1)
+      }
+    }
   }
 
   fireChange (): void {
@@ -63,7 +69,7 @@ export default class Query<CommandT extends RemoteCommand<any, any, any>> {
   }
 
   get isPending (): boolean {
-    return this.isLoading || this.isFailure || this.command != null
+    return !this.isLoading || !this.isFailure || this.command == null
   }
 
   async run (): Promise<void> {
